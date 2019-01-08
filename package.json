@@ -1,0 +1,25 @@
+{
+  "name": "scenicguides",
+  "version": "1.0.0",
+  "description": "The scenic must visits for Travel Junkies.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebishaldeb/ScenicGuides.git"
+  },
+  "author": "Bishal Deb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thebishaldeb/ScenicGuides/issues"
+  },
+  "homepage": "https://github.com/thebishaldeb/ScenicGuides#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
