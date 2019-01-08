@@ -1,24 +1,15 @@
 var express         = require("express"),
     mongoose        = require("mongoose"),
     bodyParser      = require("body-parser"),
+    Campground      = require("./models/campground"),
+    seedDB      = require("./seeds"),
     app             = express();
     
 //APP INITIALIZE
 mongoose.connect("mongodb://localhost:27017/scenicguides", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
-
-//SCHEMA SETUP
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
-
-Campground.create
-
+seedDB();
 
 // HOME PAGE
 app.get("/", function(req, res){
@@ -46,7 +37,7 @@ app.post("/campgrounds", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
     var desc = req.body.description;
-    var newCampground = {name: name, image: image};
+    var newCampground = {name: name, image: image, description: desc};
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
             console.log(err);
@@ -58,15 +49,14 @@ app.post("/campgrounds", function(req, res){
 
 // SHOW - MORE INFO PAGE
 app.get("/campgrounds/:id", function(req, res){
-    Campground.findById(req.params.id, function(err, found){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, found){
         if(err){
             console.log(err);
         } else {
+            console.log(found)
             res.render("show", {campground: found});
         }
     });
-    
-    res.render("show");
 });
 
 
