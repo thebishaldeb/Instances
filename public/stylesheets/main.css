@@ -10,7 +10,7 @@ body {
 .thumbnail .caption-full {
     padding: 9px;
 }
-#deleteForm {
+.deleteForm {
     display: inline;
     float: right;
 }
