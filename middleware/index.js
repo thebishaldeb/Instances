@@ -14,9 +14,9 @@ middlewareObj.isLoggedIn = function (req, res, next) {
 middlewareObj.ifOwned = function (req, res, next) {
     if(req.isAuthenticated()){
         Campground.findById(req.params.id, function(err, found){
-            if(err){
+            if(err || !found){
                 req.flash("error","Campground not found!");
-                res.redirect("back"); 
+                res.redirect("/campgrounds"); 
             } else {
                 if(found.author.id.equals(req.user._id)){
                     next(); 
@@ -37,7 +37,8 @@ middlewareObj.ifOwned = function (req, res, next) {
 middlewareObj.ifOwnedComment = function (req, res, next) {
     if(req.isAuthenticated()){
         Comment.findById(req.params.comment_id, function(err, found){
-            if(err){
+            if(err || !found){
+                req.flash("error", "Comment not found!");
                 res.redirect("back"); 
             } else {
                 if(found.author.id.equals(req.user._id)){
