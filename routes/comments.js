@@ -24,6 +24,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         } else {
             Comment.create(req.body.comment, function(err, comment){
                 if(err){
+                    req.flash("error","Something went wrong!");
                     console.log(err);
                 } else {
                     comment.author.id = req.user._id;
