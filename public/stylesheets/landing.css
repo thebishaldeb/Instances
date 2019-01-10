@@ -36,31 +36,31 @@ body {
     background-repeat: no-repeat;
     opacity: 0;
     z-index: 0;
-    animation: imageAnimation 25s linear infinite; 
+    animation: imageAnimation 35s linear infinite; 
 }
 
 .slideshow li:nth-child(1) { 
-    background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+    background-image: url(https://wallpapersite.com/images/pages/pic_w/3236.jpg);
 }
   
 .slideshow li:nth-child(2) { 
-    background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-    animation-delay: 5s; 
+    background-image: url(https://wallpapercave.com/wp/wp2678122.jpg);
+    animation-delay: 7s; 
 }
 
-.slideshow li:nth-child(3) { 
-    background-image: url(http://i.imgur.com/emvhOnb.jpg);
-    animation-delay: 10s; 
+.slideshow li:nth-child(3) {  
+    background-image: url(https://www.4kpapers.com/assets/2014/08/09/coral-reef-wallpaper.jpg);
+    animation-delay: 14s; 
 }
 
 .slideshow li:nth-child(4) { 
-    background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
-    animation-delay: 15s; 
+    background-image: url(https://images.pexels.com/photos/326218/pexels-photo-326218.jpeg?auto=compress&cs=tinysrgb&h=650&w=940);
+    animation-delay: 21s; 
 }
 
 .slideshow li:nth-child(5) { 
-    background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
-    animation-delay: 20s; 
+    background-image: url(https://c.wallhere.com/photos/20/cb/1920x1200_px_bridge_India_Jungles_Meghalaya_Natural_Engineering_nature_North_East_India-1017075.jpg!d);
+    animation-delay: 28s; 
 }
 
 @keyframes imageAnimation { 

@@ -6,21 +6,21 @@
             <h1>Welcome To ScenicGuides</h1>
             <p>Pretty much EVERYTHING that you want to know</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Place</a>
+                <a class="btn btn-primary btn-lg" href="/blogs/new">Add New Blog</a>
             </p>
         </div>
     </header>
     <div class="row text-center" style="display: flex; flex-wrap: wrap;">
-        <% campgrounds.forEach(function(place){ %>
+        <% blogs.forEach(function(blog){ %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
-                    <img src="<%= place.image %>" 
-                        alt="<%= place.name %>">
+                    <img src="<%= blog.image %>" 
+                        alt="<%= blog.name %>">
                     <div class="caption">
-                        <h4><%= place.name %></h4>
+                        <h4><%= blog.name %></h4>
                     </div>
                     <p>
-                        <a href="/campgrounds/<%= place._id %>" class="btn btn-primary">More Info</a>
+                        <a href="/blogs/<%= blog._id %>" class="btn btn-primary">More Info</a>
                     </p>
                 </div>
             </div>

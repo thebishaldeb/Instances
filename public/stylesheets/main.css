@@ -1,8 +1,14 @@
+/* COMMON TO ALL */
+body {
+    background: black;
+}
+
+/* WELCOME PAGE */
+
+
+/* FULL BLOG PAGE */
 .thumbnail img {
     width: 100%;
-}
-body {
-    background: yellow;
 }
 .thumbnail {
     padding: 0;
@@ -12,5 +18,12 @@ body {
 }
 .deleteForm {
     display: inline;
-    float: right;
 }
+.details {
+    color: white;
+}
+/* LOGIN AND SIGNUP PAGE */
+
+
+/* ADD AND EDIT COMMENT PAGE */
+

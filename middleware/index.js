@@ -1,5 +1,6 @@
-var Campground  = require("../models/campground"),
-    Comment     = require("../models/comment");
+var Blog        = require("../models/blogmodel"),
+    Comment     = require("../models/commentmodel");
+    
 var middlewareObj = {};
 
 // FUNCTIONS
@@ -13,10 +14,10 @@ middlewareObj.isLoggedIn = function (req, res, next) {
 
 middlewareObj.ifOwned = function (req, res, next) {
     if(req.isAuthenticated()){
-        Campground.findById(req.params.id, function(err, found){
+        Blog.findById(req.params.id, function(err, found){
             if(err || !found){
-                req.flash("error","Campground not found!");
-                res.redirect("/campgrounds"); 
+                req.flash("error","Blog not found!");
+                res.redirect("/blogs"); 
             } else {
                 if(found.author.id.equals(req.user._id)){
                     next(); 
@@ -41,7 +42,7 @@ middlewareObj.ifOwnedComment = function (req, res, next) {
                 req.flash("error", "Comment not found!");
                 res.redirect("back"); 
             } else {
-                if(found.author.id.equals(req.user._id)){
+                if(found.author.id.equals(req.user._id)) {
                     next(); 
                 }
                 else {

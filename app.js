@@ -5,14 +5,14 @@ var express         = require("express"),
     flash           = require("connect-flash"),
     methodOverride  = require("method-override"),
     LocalStrategy   = require("passport-local"),
-    User            = require("./models/user"),
+    User            = require("./models/usermodel"),
     app             = express();
     
 
 // REQUIRED ROUTES
-var campgroundsRoutes = require("./routes/campgrounds"),
-    commentRoutes     = require("./routes/comments"),
-    indexRoutes       = require("./routes/index");
+var blogsRoutes     = require("./routes/blogroute"),
+    commentRoutes   = require("./routes/commentroute"),
+    indexRoutes     = require("./routes/indexroute");
     
 //APP INITIALIZE
 mongoose.connect("mongodb://localhost:27017/scenicguides", { useNewUrlParser: true });
@@ -44,8 +44,8 @@ app.use(function (req, res, next) {
 
 // ROUTES FILES
 app.use(indexRoutes);
-app.use("/campgrounds",campgroundsRoutes);
-app.use("/campgrounds/:id/comments",commentRoutes);
+app.use("/blogs",blogsRoutes);
+app.use("/blogs/:id/comments",commentRoutes);
 
 
 app.listen(1500, function(){

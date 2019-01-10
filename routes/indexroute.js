@@ -1,5 +1,5 @@
 var express     = require("express"),
-    User        = require("../models/user"),
+    User        = require("../models/usermodel"),
     passport    = require("passport"),
     router      = express.Router({mergeParams: true});
 
@@ -22,7 +22,7 @@ router.post("/register", function(req, res){
         }
         passport.authenticate("local")(req, res, function(){
             req.flash("success","Welcome " + user.username);
-            res.redirect("/campgrounds");
+            res.redirect("/blogs");
         })
     });
 });
@@ -34,7 +34,7 @@ router.get("/login", function(req, res){
 
 router.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/campgrounds",
+        successRedirect: "/blogs",
         failureRedirect: "/login",
         failureFlash: true
     }), function(req, res){
@@ -44,7 +44,7 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
     req.logout();
     req.flash("success","Logged you out!");
-    res.redirect("/campgrounds");
+    res.redirect("/blogs");
 });
 
 module.exports = router;
