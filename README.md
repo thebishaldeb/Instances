@@ -1,2 +1,80 @@
-# ScenicGuides
-The scenic must visits for Travel Junkies.
+<h1 align="center" >ScenicGuides</h1>
+<h3 align="center"> The Photo Diary for Explorers and Travel Junkies.</h3>
+
+<hr>
+
+<br>
+
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](http://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
+
+<br>
+
+## Demo
+
+![kcdemo](https://user-images.githubusercontent.com/43542003/50326442-6abe9000-0510-11e9-8a24-d48232b61dc7.gif)
+
+<br>
+
+
+# Tools used
+* NodeJS, ExpressJS, Mongoose
+* Database - MongoDB
+
+<br>
+
+## Steps to run
+
+### Configuring MongoDB
+
+* Set up your MongoDB Database as in the tutorial: [MongoDb Tutorial (click here)](https://www.youtube.com/watch?v=FwMwO8pXfq0&t=27s
+)
+### Installing depencencies and running the app
+
+* Fork the repository
+
+* Clone the repository 
+  `git clone https://github.com/<username>/keep_clone.git`
+  where \< username \> is your username in your bash
+* Follow the steps as following in the bash
+
+```sh
+ cd keep-clone
+
+ npm install
+
+ npm start
+```
+
+<br>
+
+## Contributions 
+
+* Contributors are welcome and please comment on the issue before working on it.
+* Create pull requests, submit bugs, suggest new features.
+* Join the Gitter Channel for queries and other related stuff.
+
+gitter Channel : https://gitter.im/keep-clone/Lobby
+
+<br>
+
+## Author
+
+### [Bishal Deb](https://github.com/thebishaldeb) ❤
+
+[<img src="https://image.flaticon.com/icons/svg/185/185964.svg" width="35" padding="10">](https://linkedin.com/in/bishal-deb-0322b6148/)
+[<img src="https://image.flaticon.com/icons/svg/185/185981.svg" width="35" padding="10">](https://www.facebook.com/bishal.deb.5811)
+[<img src="https://image.flaticon.com/icons/svg/185/185985.svg" width="35" padding="10">](https://www.instagram.com/the_zalophus/)
+
+<br>
+
+
+## License
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](#)
+
+<br>
+
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/keep-clone/Lobby) 
+[![Contributors needed](https://img.shields.io/badge/contributors-needed-yellow.svg)](#)
