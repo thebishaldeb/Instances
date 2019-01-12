@@ -3,7 +3,7 @@ var express     = require("express"),
     middleware  = require("../middleware"),
     router      = express.Router({mergeParams: true});
 
-// INDEX - SHOW ALL SITES
+// INDEX - SHOW ALL INSTANCES
 router.get("/", function(req, res){
     Blog.find({}, function(err, allBlogs){
         if(err){
@@ -14,12 +14,12 @@ router.get("/", function(req, res){
     });
 });
 
-//NEW - ADD SITE
+//NEW - ADD INSTANCE
 router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("blogs/new");
 });
 
-//CREATE - CREATE SITE
+//CREATE - CREATE INSTANCE
 router.post("/", middleware.isLoggedIn, function(req, res){
     var name    = req.body.name;
     var image   = req.body.image;
@@ -51,14 +51,14 @@ router.get("/:id", function(req, res){
     });
 });
 
-// EDIT SITE
+// EDIT INSTANCE
 router.get("/:id/edit", middleware.ifOwned, function(req, res){
     Blog.findById(req.params.id, function(err, found){
         res.render("blogs/edit",{blog: found});
     });
 });
 
-// UPDATE SITE
+// UPDATE INSTANCE
 router.put("/:id", middleware.ifOwned, function(req, res){
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, update){
         if(err){
@@ -69,7 +69,7 @@ router.put("/:id", middleware.ifOwned, function(req, res){
     });
 });
 
-// DELETE SITE
+// DELETE INSTANCE
 router.delete("/:id", middleware.ifOwned, function (req, res) {
     Blog.findByIdAndRemove(req.params.id, function(err){
         if(err){

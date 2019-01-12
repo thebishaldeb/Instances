@@ -1,4 +1,4 @@
-<h1 align="center" >ScenicGuides</h1>
+<h1 align="center" >Instances</h1>
 <h3 align="center"> The Photo Diary for Explorers and Travel Junkies.</h3>
 
 <hr>
@@ -13,12 +13,20 @@
 
 ## Demo
 
-![kcdemo](https://user-images.githubusercontent.com/43542003/50326442-6abe9000-0510-11e9-8a24-d48232b61dc7.gif)
+![Landing](./images/landing.png)
+![Home](./images/home.png)
+![Blog](./images/blog.png)
+
+<br>
+
+## About
+
+This is a site to post blogs (here we call it Instances ). Anyone can read the blogs but needs to sign up or login to post one and also for commenting on the blogs. The website is still in development stage and is expected to have in the futture a Profile page for the users and also options to like the posts and chat with other users and also a better UI.
 
 <br>
 
 
-# Tools used
+## Tools used
 * NodeJS, ExpressJS, Mongoose
 * Database - MongoDB
 
@@ -34,8 +42,8 @@
 
 * Fork the repository
 
-* Clone the repository 
-  `git clone https://github.com/<username>/keep_clone.git`
+* Clone the repository  
+  `git clone https://github.com/<username>/Instances.git`   
   where \< username \> is your username in your bash
 * Follow the steps as following in the bash
 
@@ -46,6 +54,7 @@
 
  npm start
 ```
+* Now head over to http://localhost:1500/ to see it working.
 
 <br>
 
@@ -55,7 +64,7 @@
 * Create pull requests, submit bugs, suggest new features.
 * Join the Gitter Channel for queries and other related stuff.
 
-gitter Channel : https://gitter.im/keep-clone/Lobby
+gitter Channel : https://gitter.im/InstancesProject/community
 
 <br>
 
@@ -76,5 +85,5 @@ gitter Channel : https://gitter.im/keep-clone/Lobby
 
 <br>
 
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/keep-clone/Lobby) 
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/InstancesProject/community) 
 [![Contributors needed](https://img.shields.io/badge/contributors-needed-yellow.svg)](#)

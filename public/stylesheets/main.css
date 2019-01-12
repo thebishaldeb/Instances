@@ -6,7 +6,7 @@ body {
 /* WELCOME PAGE */
 
 
-/* FULL BLOG PAGE */
+/* FULL BLOG READ PAGE */
 .thumbnail img {
     width: 100%;
 }
@@ -27,3 +27,16 @@ body {
 
 /* ADD AND EDIT COMMENT PAGE */
 
+
+
+/* HEADER */
+
+
+
+/* FOOTER */
+footer {
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
