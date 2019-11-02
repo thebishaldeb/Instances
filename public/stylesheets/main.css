@@ -1,6 +1,12 @@
 /* COMMON TO ALL */
+html {
+	position: relative; 
+	min-height: 100%; 
+}
+
 body {
     background: black;
+    
 }
 
 /* WELCOME PAGE */
@@ -35,8 +41,10 @@ body {
 
 /* FOOTER */
 footer {
+ 
     padding: 10px 0;
     width: 100%;
-    position: fixed;
+    position: absolute; 
     bottom: 0;
+    overflow: hidden; 
 }
