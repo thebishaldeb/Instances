@@ -1,11 +1,39 @@
 <% include ./partials/header %>
+<html>
+    <head>
+        <link rel="stylesheet" href="/stylesheets/registration.css">
+    </head>
+<body>
+    
+    <form action="/register" method="POST">
+        <div class = "container"> 
+            <div class = "registration_container">
+        <h1>Sign Up for Instances</h1>
+        <p> Please fill in this form to create an account with Instances: </p>
+        <hr>
+        
+        <label for="username"><b>First Name:</b></label>
+        <input type="text" name="firstname" placeholder="Enter First Name" required>
 
-<h1>Sign Up</h1>
+        <label for="username"><b>Last Name:</b></label>
+        <input type="text" name="lastname" placeholder="Enter Last Name" required>
 
-<form action="/register" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>SIGN UP</button>
-</form>
+        <label for="username"><b>Username:</b></label>
+        <input type="text" name="username" placeholder="Enter Username" required>
+        
+        <label for="password"><b>Password:</b></label>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required> 
+        
+        <button type="submit" class="registerbtn">SIGN UP</button>
+        <!--<button>SIGN UP</button>-->
+    </div>
+        </div>
+    </form>    
+
+</body>
+</html>
 
 <% include ./partials/footer %>
