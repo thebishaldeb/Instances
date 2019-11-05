@@ -1,3 +1,4 @@
+
 h1 {
     position: relative;
     text-align: center;
@@ -21,6 +22,17 @@ h1 {
     opacity: 0.9;
   }
 
+  .Alreadyregisteredbtn {
+    background-color: gray;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
   /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -30,3 +42,12 @@ input[type=text], input[type=password] {
     border: none;
     background: #f1f1f1;
   }
+
+  body {
+    background-image: url('Sign-Up Background picture.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    height: 100%; 
+  }
+
