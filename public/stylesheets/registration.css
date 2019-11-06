@@ -44,7 +44,7 @@ input[type=text], input[type=password] {
   }
 
   body {
-    background-image: url('Sign-Up Background picture.jpg');
+    background-image: url("Sign-Up Background picture.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
