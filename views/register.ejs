@@ -1,11 +1,53 @@
 <% include ./partials/header %>
+<html>
+    <head>
+        <link rel="stylesheet" href="/stylesheets/registration.css">
+    </head>
+<body>
+    <div class="image">
+    <form action="/register" method="POST">
+        <div class = "container"> 
+            <div class = "registration_container">
+        <h1 style="font-size: 40px;">Instances</h1>
+        <hr>
+        <p style="text-align: center;"> Register down below and start making Instances! </p>
+                
+        <label for="username"><b>First Name:</b></label>
+        <input type="text" name="firstname" placeholder="Enter First Name" pattern="[a-zA-Z]*" required>
 
-<h1>Sign Up</h1>
+        <label for="username"><b>Last Name:</b></label>
+        <input type="text" name="lastname" placeholder="Enter Last Name" pattern="[a-zA-Z]*" required>
 
-<form action="/register" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>SIGN UP</button>
-</form>
+        <label for="username"><b>Username:</b></label>
+        <input type="text" name="username" placeholder="Enter Username" required>
+        
+        <label for="password"><b>Password:</b></label>
+        <input type="password" name="password" placeholder="Enter Password" required minlength="8">
+        
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" id="email" name="email" required> 
+        
+        <button type="submit" class="registerbtn">SIGN UP</button>
+        <button type="button" class="Alreadyregisteredbtn" onclick= "location.href='login'">Already have an account? <u>Sign In</u></button>
+        
+    </div>
+        </div>
+    </form>    
+</div>
+</body>
+<!-- <script>
+    var email = document.getElementById("email");
 
+    email.addEventListener("input", function (event) {
+    if (email.validity.typeMismatch) {
+        email.setCustomValidity("I expect an e-mail, darling!");
+    } else {
+        email.setCustomValidity("");
+    }
+    });
+
+</script> -->
 <% include ./partials/footer %>
+</html>
+
+
