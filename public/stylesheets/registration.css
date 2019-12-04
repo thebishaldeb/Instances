@@ -8,8 +8,9 @@ h1 {
   padding: 30px;
   width: 60%;
   margin: auto;
-  background-color : white;
- 
+  background-color: white;
+  z-index: 2;
+
 }
 
 /* Set a style for the submit button */
@@ -17,24 +18,15 @@ h1 {
   background-color: green;
   color: white;
   padding: 5px 10px;
-  margin : 10px auto;
+  margin: 10px auto;
   border-radius: 15px;
   cursor: pointer;
-font-size: 14px;
-width : 30%;
+  font-size: 14px;
+  width: 30%;
   opacity: 0.9;
 }
 
-.Alreadyregisteredbtn {
-  background-color: gray;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
+
 
 /* Full-width input fields */
 /* input[type=text], input[type=password] {
@@ -58,9 +50,11 @@ input[type=text]:hover,
 input[type=password]:hover {
   border-bottom-color: green;
 }
-.pink{
-  
+
+.pink {
+
   margin-bottom: 40px;
+
 }
 
 body {

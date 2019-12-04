@@ -6,10 +6,11 @@
 </head>
 
 <body>
-    <div class="image" style="margin-bottom: 50px;">
+    <div class="image">
         <div class="container perl">
-            <div class="registration_container">
-                <form action="/register" method="POST" style="padding: 10px; margin-bottom: 40px; background-color: white;">
+            <div class="registration_container" style="margin: 50px auto;">
+                <form action="/register" method="POST"
+                    style="padding: 10px; margin-bottom: 40px; background-color: white;">
                     <div class="pink">
                         <h1 style="font-size: 40px; color: green">Instances</h1>
                         <hr>
@@ -53,7 +54,8 @@
 
 
                     <button type="submit" class="btn btn-success"
-                        style="border-radius: 15px; margin : 0 30% 0 50%">Submit</button>
+                        style="border-radius: 15px; margin : 20px 50% 0 30%">Submit <i
+                            class="fas fa-arrow-right fa-0.5x"></i></button>
 
                 </form>
             </div>
@@ -72,6 +74,11 @@
     });
 
 </script> -->
-    <% include ./partials/footer %>
+    <div class="container">
+        <p class="footer-copyright text-center py-3" style="color : white;">
+            Instances 2019 &copy; Bishal Deb
+        </p>
+    </div>
+</body>
 
 </html>
