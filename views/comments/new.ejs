@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <div class="container">
-    <div class="row">
-        <h1 style="text-align: center">Add New Comment to <%= blog.name %></h1>
+    <div class="row justify-content-center">
+        <h2 class="text-center text-light">Add New Comment to <%= blog.name %></h1>
         <div style="width: 30%; margin: 25px auto;">
             <form action="/blogs/<%= blog._id %>/comments" method="POST">
                 <div class="form-group">
