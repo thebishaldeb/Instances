@@ -5,8 +5,12 @@ html {
 }
 
 body {
-    background: black;
+    background: #343a40;
     
+}
+
+nav.navbar {
+    margin-bottom: 20px;
 }
 
 /* WELCOME PAGE */
