@@ -4,10 +4,26 @@ html {
 	min-height: 100%; 
 }
 
-body {
-    background: black;
-    
-}
+
+.navbar{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    background-color : rgba(0, 0 , 0 , 0.5) !important;
+    color : green !important;
+  }
+  
+  .navbar nav li{
+    padding-right: .7rem;
+  }
+  .navbar-dark .navbar-nav .nav-link{
+    color: white;
+    padding-top: .8rem;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover{
+    color: #1ebba3;
+  }
 
 /* WELCOME PAGE */
 
