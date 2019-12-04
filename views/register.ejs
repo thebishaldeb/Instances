@@ -1,53 +1,55 @@
 <% include ./partials/header %>
-<html>
-    <head>
-        <link rel="stylesheet" href="/stylesheets/registration.css">
-    </head>
-<body>
-    <div class="image">
-    <form action="/register" method="POST">
-        <div class = "container"> 
-            <div class = "registration_container">
-        <h1 style="font-size: 40px;">Instances</h1>
-        <hr>
-        <p style="text-align: center;"> Register down below and start making Instances! </p>
-                
-        <label for="username"><b>First Name:</b></label>
-        <input type="text" name="firstname" placeholder="Enter First Name" pattern="[a-zA-Z]*" required>
-
-        <label for="username"><b>Last Name:</b></label>
-        <input type="text" name="lastname" placeholder="Enter Last Name" pattern="[a-zA-Z]*" required>
-
-        <label for="username"><b>Username:</b></label>
-        <input type="text" name="username" placeholder="Enter Username" required>
-        
-        <label for="password"><b>Password:</b></label>
-        <input type="password" name="password" placeholder="Enter Password" required minlength="8">
-        
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" id="email" name="email" required> 
-        
-        <button type="submit" class="registerbtn">SIGN UP</button>
-        <button type="button" class="Alreadyregisteredbtn" onclick= "location.href='login'">Already have an account? <u>Sign In</u></button>
-        
-    </div>
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-sm-8 offset-sm-2">
+                            <p class="text-primary text-center">Register and start making Instances!</p>
+                            <form action="/register" method="POST">
+                                <div class="form-group row">
+                                    <label for="firstname">First Name</label>
+                                    <input class="form-control form-control-sm" name="firstname" id="firstname" type="text"
+                                        placeholder="e.g. John" pattern="[a-zA-Z]*" required>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="lastname">Last Name</label>
+                                        <input class="form-control form-control-sm" name="lastname" id="lastname" type="text"
+                                            placeholder="e.g. Smith" pattern="[a-zA-Z]*" required>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email">Email</label>
+                                    <input class="form-control form-control-sm" name="email" id="email" type="email"
+                                        placeholder="e.g. abc@example.com" required>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="firstname">Username</label>
+                                        <input class="form-control form-control-sm" name="username" id="username" type="text"
+                                            placeholder="e.g. john_smith" pattern="[a-zA-Z]*" required>
+                                    </div>
+                                <div class="form-group row">
+                                    <label for="password">Password</label>
+                                    <input class="form-control form-control-sm" name="password" id="password"
+                                        type="password" placeholder="e.g. minimum 8 characters"  minlength="8" required>
+                                </div>
+                                <div class="form-group">
+                                    <p class="small text-center">By Signing up, you agree to our Terms and Conditions and Privacy
+                                        Policy</p>
+                                </div>
+                                <div class="form-group row">
+                                    <button class="btn btn-sm btn-primary btn-block" type="submit">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-center">Already a member! <a href="/login">Login</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>    
-</div>
+    </div>
 </body>
-<!-- <script>
-    var email = document.getElementById("email");
-
-    email.addEventListener("input", function (event) {
-    if (email.validity.typeMismatch) {
-        email.setCustomValidity("I expect an e-mail, darling!");
-    } else {
-        email.setCustomValidity("");
-    }
-    });
-
-</script> -->
 <% include ./partials/footer %>
-</html>
 
 
