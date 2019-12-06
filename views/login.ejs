@@ -1,36 +1,63 @@
 <% include ./partials/header %>
+<html>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="col-sm-8 offset-sm-2">
-                        <h4 class="text-primary my-3 text-center">Login to your account</h4>
-                        <form action="/login" method="post">
-                            <div class="form-group row">
-                                <label for="username">Username</label>
-                                <input class="form-control form-control-sm" name="username" id="username" type="text"
-                                    placeholder="e.g. username" required>
-                            </div>
-                            <div class="form-group row">
-                                <label for="password">Password</label>
-                                <input class="form-control form-control-sm" name="password" id="password"
-                                    type="password" required>
-                            </div>
-                            <!-- <div class="form-group form-check">
-                                                <input type="checkbox" class="form-check-input" />
-                                                <label for="remember" class="form-check-label">Remember Me</label>
-                                        </div> -->
-                            <div class="form-group row">
-                                <button class="btn btn-sm btn-primary btn-block" type="submit">Login</button>
-                            </div>
-                        </form>
+<head>
+    <link rel="stylesheet" href="/stylesheets/registration.css">
+</head>
+
+<body>
+    <div class="image">
+        <div class="container perl">
+            <div class="registration_container" style="margin: 50px auto;">
+                <form action="/login" method="POST"
+                    style="padding: 10px; margin-bottom: 40px; background-color: white;">
+                    <div class="pink">
+                        <h1 style="font-size: 40px; color: blueviolet"><i class="fas fa-sign-in-alt"></i> Login</h1>
+                        <hr>
                     </div>
-                </div>
+
+                    <div class="form-group row">
+                        <label for="username" class="col-sm-2 col-form-label">UserName:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="username" placeholder="Enter UserName"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-success"
+                        style="border-radius: 15px; margin : 20px 50% 0 30%">Login <i
+                            class="fas fa-arrow-right fa-0.5x"></i></button>
+
+                </form>
             </div>
         </div>
     </div>
-</div>
 
-<% include ./partials/footer %>
+    <!-- <script>
+    var email = document.getElementById("email");
+
+    email.addEventListener("input", function (event) {
+    if (email.validity.typeMismatch) {
+        email.setCustomValidity("I expect an e-mail, darling!");
+    } else {
+        email.setCustomValidity("");
+    }
+    });
+
+</script> -->
+    <div class="container">
+        <p class="footer-copyright text-center py-3" style="color : white;">
+            Instances 2019 &copy; Bishal Deb
+        </p>
+    </div>
+</body>
+
+</html>

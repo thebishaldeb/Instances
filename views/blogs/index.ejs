@@ -14,8 +14,8 @@
     <div class="row text-center">
         <% blogs.forEach(function(blog){ %>
         <div class="col-md-3 col-sm-6">
-            <div class="card bg-light">
-                <img src="<%= blog.image %>" alt="<%= blog.name %>">
+            <div class="card bg-light" style="padding : 12px 0; margin: 10px; ">
+                <img src="<%= blog.image %>" alt="<%= blog.name %>" style="height: 130px; width : 180px;">
                 <div class="card-body">
                     <h4 class="card-title"><%= blog.name %></h4>
                     <p>
