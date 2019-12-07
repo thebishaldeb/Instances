@@ -6,7 +6,7 @@
 
                 <h2 style="text-align: center">Edit Comment </h2>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="/blogs/<%= blog_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                         <div class="form-group">
                             <input class="form-control" type="text" name="comment[text]" placeholder="Edit Comment"
                                 value="<%= comment.text %>" required>
