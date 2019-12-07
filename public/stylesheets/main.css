@@ -84,23 +84,19 @@ nav.navbar {
   
   
   
-  
-  
-  .navbar {
+  navbar-light {
     text-transform: uppercase;
     font-weight: 700;
     font-size: .9rem;
     letter-spacing: .1rem;
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    color: green !important;
+    
+    
   }
+
   
   
   
-  .navbar-dark .navbar-nav .nav-link {
-    color: white ;
-    padding-top: .8rem;
-  }
+  
   
   
   
@@ -153,4 +149,6 @@ nav.navbar {
     border-radius: 9px;
     width: 60px;
   }
-  
+  body{
+    background-image: url("profilebg.jpg");
+  }
