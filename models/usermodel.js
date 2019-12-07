@@ -15,9 +15,17 @@ var UserSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
+    firstname:  {
+        type: String,
+        required: true
+    },
+    lastname:  {
+        type: String,
+        required: true
+    },
     phonenumber: String,
     profilepicture: String,
-    name: String,
+    
     age: String,
     gender: String,
     description: String,
