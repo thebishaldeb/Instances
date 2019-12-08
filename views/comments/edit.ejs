@@ -1,11 +1,11 @@
 <% include ../partials/header %>
 <div class="container">
     <div class="row">
-        <div class="col-md-6" style="margin: 10px auto">
-            <div class="card bg-light" style="padding: 10px;">
+        <div class="col-md-6 mx-auto">
+            <div class="card bg-light" style="padding : 10px; margin: 20px auto;width : 100%">
 
-                <h1 style="text-align: center">Edit Comment </h1>
-                <div class="card-body" style=" margin: 25px auto;">
+                <h2 style="text-align: center">Edit Comment </h2>
+                <div class="card-body">
                     <form action="/blogs/<%= blog_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                         <div class="form-group">
                             <input class="form-control" type="text" name="comment[text]" placeholder="Edit Comment"
