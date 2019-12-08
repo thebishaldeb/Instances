@@ -14,8 +14,12 @@ router.get("/register", function(req, res){
 });
 
 router.post("/register", function(req, res){
-    var {username , email , password , lastname , firstname , gender , description , birthdate , role , age , profilepicture , phonenumber} = req.body;
-    var newUser = new User({username , email , password , lastname , firstname , gender , description , birthdate , role , age , profilepicture , phonenumber});
+    var {username , email, lastname , firstname , gender 
+        , description , birthdate , role , age , profilepicture ,
+         phonenumber} = req.body;
+    var newUser = new User({username , email, lastname , 
+        firstname , gender , description , birthdate , role , age , 
+        profilepicture , phonenumber});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
