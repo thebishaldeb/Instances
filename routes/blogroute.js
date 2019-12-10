@@ -3,6 +3,7 @@ var express     = require("express"),
     middleware  = require("../middleware"),
     router      = express.Router({mergeParams: true});
 
+
 // INDEX - SHOW ALL INSTANCES
 router.get("/", function(req, res){
     Blog.find({}, function(err, allBlogs){
@@ -20,27 +21,36 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 //CREATE - CREATE INSTANCE
-router.post("/", middleware.isLoggedIn, function(req, res){
-    var name    = req.body.name;
-    var image   = req.body.image;
-    var desc    = req.body.description;
-    var author  = {
-        id      : req.user._id,
-        username: req.user.username
-    };
-    var newBlog = {name: name, image: image, description: desc, author: author};
-    Blog.create(newBlog, function(err, newlyCreated){
-        if(err){
-            console.log(err);
-        } else {
-            res.redirect("/blogs");
-        }
-    });
+router.post("/", middleware.isLoggedIn, async function(req, res){
+    try{
+        var name    = req.body.name;
+        var image   = req.body.image;
+        var desc    = req.body.description;
+        var author  = {
+            id      : req.user._id,
+            username: req.user.username
+        };
+        var user;
+
+       
+        var newBlog = {name: name, image: image, description: desc, author: author, user : req.user._id};
+        Blog.create(newBlog, function(err, newlyCreated){
+            if(err){
+                console.log(err);
+            } else {
+                res.redirect("/blogs");
+            }
+        });
+    }catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+   
 });
 
 // SHOW - MORE INFO PAGE
 router.get("/:id", function(req, res){
-    Blog.findById(req.params.id).populate("comments").exec(function(err, found){
+    Blog.findById(req.params.id).populate("comments").populate('user',['description1','age', 'profilepicture','gender','role', 'birthdate','phonenumber','email']).exec(function(err, found){
         if(err || !found){
             console.log(err);
             req.flash("error", "Blog not found");
