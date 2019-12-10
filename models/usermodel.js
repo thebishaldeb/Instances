@@ -31,7 +31,7 @@ var UserSchema = new mongoose.Schema({
     gender:  {
         type: String
     },
-    description: {
+    description1 : {
         type: String
     },
     birthdate: {
