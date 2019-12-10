@@ -17,16 +17,16 @@ This is a site to post blogs (here we call it Instances ). Anyone can read the b
 
 ## Demo
 
-![alt-text](./images/instance.png)
+|           Instance page             |         Blog page                    |
+| ------------------------------------| -------------------------------------|
+| ![alt-text-1](./images/instance.png)| ![alt-text-2](./images/blog_page.png)|
 
 <br>
 <br>
-<br>
-<br>
 
-|           Login page              |         Register page               |
-| --------------------------------- | ----------------------------------- |
-| ![alt-text-1](./images/login.png) | ![alt-text-2](./images/register.png)|
+|           Login page                |         Register page                |
+| ----------------------------------- | ------------------------------------ |
+| ![alt-text-1](./images/login.png)   | ![alt-text-2](./images/register.png) |
 
 <br>
 
@@ -52,7 +52,7 @@ This is a site to post blogs (here we call it Instances ). Anyone can read the b
 * Follow the steps as following in the bash
 
 ```sh
- cd keep-clone
+ cd Instances
 
  npm install
 
