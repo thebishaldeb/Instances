@@ -9,21 +9,21 @@
 
                     <ul class="list-group">
                         <% if(blog.user){%>
-                            <% if(blog.user.profilepicture){ %>
-                                <li class="list-group-item"><img style="width : 120px ; height: 120px;border-radius: 50%;"
-                                        src="<%= blog.user.profilepicture %>" /></li>
-                                <% } %>
-                                <li class="list-group-item" active>
-                                    <h5><%= blog.author.username %></h5>
-                                </li>
-                                <% if(blog.user.description1){ %>
-                                <li class="list-group-item"><em><%= blog.user.description1 %></em>
-                                </li>
-                                <% } %>
-                                <% if(blog.user.role){ %>
-                                <li class="list-group-item"><strong>Role:</strong> <%= blog.user.role %></li>
-                                <% } %>
-                                <% 
+                        <% if(blog.user.profilepicture){ %>
+                        <li class="list-group-item"><img style="width : 120px ; height: 120px;border-radius: 50%;"
+                                src="<%= blog.user.profilepicture %>" /></li>
+                        <% } %>
+                        <li class="list-group-item" active>
+                            <h5><%= blog.author.username %></h5>
+                        </li>
+                        <% if(blog.user.description1){ %>
+                        <li class="list-group-item"><em><%= blog.user.description1 %></em>
+                        </li>
+                        <% } %>
+                        <% if(blog.user.role){ %>
+                        <li class="list-group-item"><strong>Role:</strong> <%= blog.user.role %></li>
+                        <% } %>
+                        <% 
                                     function formatDate(date) {
                                         var d = new Date(date),
                                             month = '' + (d.getMonth() + 1),
@@ -37,29 +37,29 @@
                                     
                                         return [year, month, day].join('-');
                                     }%>
-                                <% if(blog.user.phonenumber){ %>
-                                <li class="list-group-item"><strong>Phonenumber:</strong> <%= blog.user.phonenumber %></li>
-                                <% } %>
-                                <% if(blog.user.email){ %>
-                                <li class="list-group-item"><strong>Email:</strong> <%= blog.user.email %></li>
-                                <% } %>
-                                <% if(blog.user.birthdate){ %>
-                                <li class="list-group-item"><strong>Birthdate:</strong> <%= formatDate(blog.user.birthdate) %>
-                                </li>
-                                <% } %>
-                                <% if(blog.user.gender){ %>
-                                <li class="list-group-item"><strong>Gender:</strong> <%= blog.user.gender %></li>
-                                <% } %>
-        
-                                <% if(blog.user.age){ %>
-                                <li class="list-group-item"><strong>Age:</strong> <%= blog.user.age %></li>
-                                <% } %>
-                    
+                        <% if(blog.user.phonenumber){ %>
+                        <li class="list-group-item"><strong>Phonenumber:</strong> <%= blog.user.phonenumber %></li>
+                        <% } %>
+                        <% if(blog.user.email){ %>
+                        <li class="list-group-item"><strong>Email:</strong> <%= blog.user.email %></li>
+                        <% } %>
+                        <% if(blog.user.birthdate){ %>
+                        <li class="list-group-item"><strong>Birthdate:</strong> <%= formatDate(blog.user.birthdate) %>
+                        </li>
+                        <% } %>
+                        <% if(blog.user.gender){ %>
+                        <li class="list-group-item"><strong>Gender:</strong> <%= blog.user.gender %></li>
+                        <% } %>
+
+                        <% if(blog.user.age){ %>
+                        <li class="list-group-item"><strong>Age:</strong> <%= blog.user.age %></li>
+                        <% } %>
+
                         <% } else { %>
-                            <li class="list-group-item" active>
-                                    <h5><%= blog.author.username %></h5>
-                            </li>
-                             
+                        <li class="list-group-item" active>
+                            <h5><%= blog.author.username %></h5>
+                        </li>
+
                         <% } %>
                     </ul>
                 </div>
@@ -81,8 +81,8 @@
                         <em> 10 days ago.</em>
                     </h7>
                     <hr>
-                    <% if(currentUser && blog.user.equals(currentUser._id)){ %>
-                    <a href="/blogs/<%= blog._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                    <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
+                        <a href="/blogs/<%= blog._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
                     <form class="deleteForm" action="/blogs/<%=blog._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </form>
@@ -91,11 +91,12 @@
             </div>
             <div class="card bg-light" style="margin: 10px;">
                 <div class="text-right">
-                    <a href="/blogs/<%= blog._id %>/comments/new" class="btn btn-sm btn-success">
-                        Add new comment
-                    </a>
+                   <button class="btn btn-sm btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Add new comment</button>
+                   
+                   <% include ../comments/new %>
                 </div>
             </div>
+           
             <% blog.comments.forEach(function(comment){ %>
             <div class="row">
                 <div class="col-md-8">
@@ -110,12 +111,12 @@
                                 <%= comment.author.username %>
                             </div>
 
-                            <% if(currentUser && comment.user.equals(currentUser._id)){ %>
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
 
 
-                            <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>/edit">
-                                <button class="btn btn-outline-success dev">Edit</button>
-                            </a>
+                                <button class="btn btn-sm btn-outline-success" data-toggle="collapse" data-target="#collapseExample1<%= comment._id %>" aria-expanded="false" aria-controls="collapseExample">Edit</button>
+                                <% include ../comments/edit %>
+                          
 
                             <form class="deleteForm"
                                 action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE"
