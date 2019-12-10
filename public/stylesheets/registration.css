@@ -18,7 +18,7 @@ h1 {
   background-color: blueviolet;
   color: white;
   padding: 5px 10px;
-  margin: 10px auto;
+  margin: 3px auto;
   border-radius: 15px;
   cursor: pointer;
   font-size: 14px;
@@ -38,7 +38,10 @@ h1 {
     background: #f1f1f1;
   } */
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=number],
+input[type=date],
+input[type=email] {
   border-color: white;
   border-bottom-color: lightgray;
   border-radius: 0;
@@ -47,7 +50,10 @@ input[type=password] {
 }
 
 input[type=text]:hover,
-input[type=password]:hover {
+input[type=password]:hover,
+input[type=number]:hover,
+input[type=date]:hover,
+input[type=email]:hover {
   border-bottom-color: blueviolet;
 }
 

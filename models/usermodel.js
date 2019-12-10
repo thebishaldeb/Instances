@@ -3,29 +3,44 @@ var mongoose = require("mongoose"),
 
 var UserSchema = new mongoose.Schema({
     username: {
-        type: String,
-        required: true
+        type: String
     },
     password: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
         type: String,
-        unique: true,
-        required: true
+        unique: true
     },
-    phonenumber: String,
-    profilepicture: String,
-    name: String,
-    age: String,
-    gender: String,
-    description: String,
+    firstname:  {
+        type: String
+    },
+    lastname: {
+        type: String
+    },
+    phonenumber: {
+        type: String
+    },
+    profilepicture:  {
+        type: String
+    },
+    
+    age:  {
+        type: String
+    },
+    gender:  {
+        type: String
+    },
+    description1 : {
+        type: String
+    },
     birthdate: {
         type: Date,
         default: Date.now
     },
-    role: String
+    role:  {
+        type: String
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose);

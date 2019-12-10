@@ -13,6 +13,9 @@ html {
 nav.navbar {
     margin-bottom: 20px;
 }
+.navbar-brand{
+  font-size: 25px;
+}
 
 /* WELCOME PAGE */
 
@@ -84,13 +87,14 @@ nav.navbar {
   
   
   
-  navbar-light {
+  .navbar {
     text-transform: uppercase;
     font-weight: 700;
     font-size: .9rem;
     letter-spacing: .1rem;
-    
-    
+    background: rgba(0, 0, 0, 0.6);
+    color : white;
+    border-bottom: rgba(0, 0, 0, 0.6);
   }
 
   

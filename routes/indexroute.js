@@ -3,6 +3,7 @@ var express     = require("express"),
     passport    = require("passport"),
     router      = express.Router({mergeParams: true});
 
+
 // HOME PAGE
 router.get("/", function(req, res){
     res.render("landing");
@@ -14,7 +15,12 @@ router.get("/register", function(req, res){
 });
 
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var {username , email, lastname , firstname , gender 
+        , description1 , birthdate , role , age , profilepicture ,
+         phonenumber} = req.body;
+    var newUser = new User({username , email, lastname , 
+        firstname , gender , description1 , birthdate , role , age , 
+        profilepicture , phonenumber});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
