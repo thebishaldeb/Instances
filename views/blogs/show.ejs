@@ -82,7 +82,7 @@
                     </h7>
                     <hr>
                     <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
-                    <a href="/blogs/<%= blog._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="/blogs/<%= blog._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
                     <form class="deleteForm" action="/blogs/<%=blog._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger">Delete</button>
                     </form>
@@ -91,11 +91,12 @@
             </div>
             <div class="card bg-light" style="margin: 10px;">
                 <div class="text-right">
-                    <a href="/blogs/<%= blog._id %>/comments/new" class="btn btn-sm btn-success">
-                        Add new comment
-                    </a>
+                   <button class="btn btn-sm btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Add new comment</button>
+                   
+                   <% include ../comments/new %>
                 </div>
             </div>
+           
             <% blog.comments.forEach(function(comment){ %>
             <div class="row">
                 <div class="col-md-8">
@@ -113,9 +114,9 @@
                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
 
 
-                            <a href="/blogs/<%= blog._id %>/comments/<%= comment._id %>/edit">
-                                <button class="btn btn-outline-success dev">Edit</button>
-                            </a>
+                                <button class="btn btn-sm btn-outline-success" data-toggle="collapse" data-target="#collapseExample1<%= comment._id %>" aria-expanded="false" aria-controls="collapseExample">Edit</button>
+                                <% include ../comments/edit %>
+                          
 
                             <form class="deleteForm"
                                 action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE"
