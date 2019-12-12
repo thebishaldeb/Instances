@@ -13,7 +13,7 @@ var express         = require("express"),
 var blogsRoutes     = require("./routes/blogroute"),
     commentRoutes   = require("./routes/commentroute"),
     indexRoutes     = require("./routes/indexroute");
-    
+    profileRoutes     = require("./routes/profileroute");
 //APP INITIALIZE
 mongoose.connect("mongodb://localhost:27017/instances",
  { useNewUrlParser: true, useUnifiedTopology:true });
@@ -47,7 +47,7 @@ app.use(function (req, res, next) {
 app.use(indexRoutes);
 app.use("/blogs",blogsRoutes);
 app.use("/blogs/:id/comments",commentRoutes);
-
+app.use("/user", profileRoutes);
 
 app.listen(1500, function(){
     console.log("Your application is running at http://localhost:1500/ ");
