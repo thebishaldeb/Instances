@@ -2,7 +2,7 @@ var express     = require("express"),
     Blog        = require("../models/blogmodel"),
     middleware  = require("../middleware"),
     router      = express.Router({mergeParams: true});
-
+var moment = require('moment');
 
 // INDEX - SHOW ALL INSTANCES
 router.get("/", function(req, res){
@@ -50,13 +50,13 @@ router.post("/", middleware.isLoggedIn, async function(req, res){
 
 // SHOW - MORE INFO PAGE
 router.get("/:id", function(req, res){
-    Blog.findById(req.params.id).populate("comments").populate('user',['description1','age', 'profilepicture','gender','role', 'birthdate','phonenumber','email']).exec(function(err, found){
+    Blog.findById(req.params.id).populate('comments').populate('user',['description1','username']).exec(function(err, found){
         if(err || !found){
             console.log(err);
             req.flash("error", "Blog not found");
             res.redirect("back");
         } else {
-            res.render("blogs/show", {blog: found});
+            res.render("blogs/show", {blog: found, moment : moment});
         }
     });
 });
