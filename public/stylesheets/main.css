@@ -16,6 +16,9 @@ nav.navbar {
 .navbar-brand{
   font-size: 25px;
 }
+.list-group-item strong{
+  color : #17a2b8;
+}
 
 /* WELCOME PAGE */
 
@@ -65,7 +68,10 @@ nav.navbar {
   }
   
   input[type=text],
-  input[type=password] {
+  input[type=password],
+  input[type=email],
+  input[type=number],
+  input[type=date] {
     border-color: white;
     border-bottom-color: lightgray;
     border-radius: 0;
