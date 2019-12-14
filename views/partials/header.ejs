@@ -35,7 +35,10 @@
                         <ul class="dropdown-menu">
                                 <a href="../user/<%= currentUser.username %>" style="text-decoration: none;" ><i class="fa fa-fw fa-user"></i> Account</a>
                                 <li class="divider"></li>
-                            <a href="/logout" style="text-decoration: none;" ><i class="fa fa-fw fa-power-off" ></i> Log Out</a>                        </ul>
+                         <a href="#" style="text-decoration: none;" ><i class="far fa-images"></i> Posts <%= `${blogs.length}` %> <% console.log(currentUser) %> </a>
+                            <li class="divider"></li>
+                        <a href="/logout" style="text-decoration: none;" ><i class="fa fa-fw fa-power-off" ></i> Log Out</a>                        
+                        </ul>
                     </li>
                 </ul> 
                     <% } %>
