@@ -1,4 +1,5 @@
 <% include ../partials/header %>
+
 <div class="container">
     <div class="row">
         <div class="col-md-3">
@@ -9,55 +10,18 @@
 
                     <ul class="list-group">
                         <% if(blog.user){%>
-                        <% if(blog.user.profilepicture){ %>
-                        <li class="list-group-item"><img style="width : 120px ; height: 120px;border-radius: 50%;"
-                                src="<%= blog.user.profilepicture %>" /></li>
-                        <% } %>
+                        
                         <li class="list-group-item" active>
-                            <h5><%= blog.author.username %></h5>
+                            <h5><%= blog.user.username %></h5>
                         </li>
                         <% if(blog.user.description1){ %>
                         <li class="list-group-item"><em><%= blog.user.description1 %></em>
                         </li>
                         <% } %>
-                        <% if(blog.user.role){ %>
-                        <li class="list-group-item"><strong>Role:</strong> <%= blog.user.role %></li>
-                        <% } %>
-                        <% 
-                                    function formatDate(date) {
-                                        var d = new Date(date),
-                                            month = '' + (d.getMonth() + 1),
-                                            day = '' + d.getDate(),
-                                            year = d.getFullYear();
-                                    
-                                        if (month.length < 2) 
-                                            month = '0' + month;
-                                        if (day.length < 2) 
-                                            day = '0' + day;
-                                    
-                                        return [year, month, day].join('-');
-                                    }%>
-                        <% if(blog.user.phonenumber){ %>
-                        <li class="list-group-item"><strong>Phonenumber:</strong> <%= blog.user.phonenumber %></li>
-                        <% } %>
-                        <% if(blog.user.email){ %>
-                        <li class="list-group-item"><strong>Email:</strong> <%= blog.user.email %></li>
-                        <% } %>
-                        <% if(blog.user.birthdate){ %>
-                        <li class="list-group-item"><strong>Birthdate:</strong> <%= formatDate(blog.user.birthdate) %>
-                        </li>
-                        <% } %>
-                        <% if(blog.user.gender){ %>
-                        <li class="list-group-item"><strong>Gender:</strong> <%= blog.user.gender %></li>
-                        <% } %>
-
-                        <% if(blog.user.age){ %>
-                        <li class="list-group-item"><strong>Age:</strong> <%= blog.user.age %></li>
-                        <% } %>
-
+                        <li class="list-group-item"><a href="/user/<%= blog.user.username %>"><button class="btn btn-primary btn-sm">View Profile</button></a></li>
                         <% } else { %>
                         <li class="list-group-item" active>
-                            <h5><%= blog.author.username %></h5>
+                            <h5><%= blog.user.username %></h5>
                         </li>
 
                         <% } %>
@@ -77,8 +41,19 @@
                     <p class="card-text"><%= blog.description %></p>
                     <hr>
                     <h7>
-                        Submitted by <strong><a href=""><%= blog.author.username %></a></strong> |
-                        <em> 10 days ago.</em>
+                        Submitted by <strong><a href=""><%= blog.user.username %></a></strong> |
+                       
+                                <% const date1 = new Date() %>
+                                <% const date2 = blog.date %>
+                                <% const diffTime = Math.abs(date2 - date1); %>
+                              
+                             <% const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); %> 
+                        
+                        <% if(diffDays > 7){ %>
+                        on<em class="text-primary"> <%= moment(blog.date).format("Do MMM YYYY") %></em>
+                        <%}else{ %> 
+                            <em><%= diffDays %>  </em> day ago
+                        <% } %> 
                     </h7>
                     <hr>
                     <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
@@ -119,7 +94,17 @@
                     <div class="card" style="margin : 10px;">
                         <div class="card-body">
                             <p>
-                                <%= comment.text %>
+                                    <% const date1 = new Date() %>
+                                    <% const date2 = comment.date %>
+                                    <% const diffTime = Math.abs(date2 - date1); %>
+                              
+                                    <% const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); %> 
+                       
+                                <%= comment.text %> |  <% if(diffDays > 8){ %>
+                                    on<em class="text-primary"> <%= moment(comment.date).format("Do MMM YYYY") %></em>
+                                    <%}else{ %> 
+                                        <em><%= diffDays %> </em>  days ago
+                                    <% } %> 
                             </p>
                             <hr>
                             <div class="chip">
