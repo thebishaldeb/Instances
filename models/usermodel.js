@@ -1,5 +1,6 @@
 var mongoose = require("mongoose"),
     passportLocalMongoose = require("passport-local-mongoose");
+    validator = require('validator');
 
 var UserSchema = new mongoose.Schema({
     username: {
@@ -10,7 +11,13 @@ var UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true
+        unique: true,
+        validate(value) {
+            if(!validator.isEmail(value))
+            {
+                throw new Error('Email is invalid!')
+            }
+        }
     },
     firstname:  {
         type: String
@@ -24,7 +31,7 @@ var UserSchema = new mongoose.Schema({
     profilepicture:  {
         type: String
     },
-    
+
     age:  {
         type: String
     },

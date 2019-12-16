@@ -2,7 +2,7 @@ var mongoose    = require("mongoose");
 //SCHEMA SETUP
 var blogSchema = new mongoose.Schema({
     name        : String,
-    image       : String,
+    image       : [String],
     description : String,
     author      : {
         id      : {
