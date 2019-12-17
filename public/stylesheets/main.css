@@ -16,6 +16,9 @@ nav.navbar {
 .navbar-brand{
   font-size: 25px;
 }
+.list-group-item strong{
+  color : #17a2b8;
+}
 
 /* WELCOME PAGE */
 
@@ -65,7 +68,10 @@ nav.navbar {
   }
   
   input[type=text],
-  input[type=password] {
+  input[type=password],
+  input[type=email],
+  input[type=number],
+  input[type=date] {
     border-color: white;
     border-bottom-color: lightgray;
     border-radius: 0;
@@ -85,7 +91,14 @@ nav.navbar {
     -webkit-box-shadow: none;
   }
   
-  
+  .nav {
+    font-size: 16px;
+  }
+
+  a {
+margin-left: 15px; 
+ }
+
   
   .navbar {
     text-transform: uppercase;
@@ -144,7 +157,7 @@ nav.navbar {
     padding: 10px 0;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     overflow: hidden;
   }
   
@@ -155,4 +168,6 @@ nav.navbar {
   }
   body{
     background-image: url("profilebg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }

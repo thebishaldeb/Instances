@@ -27,6 +27,7 @@ const fileFilter = (req, file, cb) => {
 
 var upload_profilepic = multer({ storage: profilepic_storage, fileFilter: fileFilter })
 
+
 // HOME PAGE
 router.get("/", function(req, res){
     res.render("landing");
@@ -50,6 +51,7 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
         firstname , gender , description , birthdate , role , age , 
         profilepicture : "../" + req.file.path.slice(8) , phonenumber});
         User.register(newUser, req.body.password, function(err, user){
+
         if(err){
             console.log(err);
             if(err.errors.email) {

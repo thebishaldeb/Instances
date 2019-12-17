@@ -2,6 +2,7 @@ var express     = require("express"),
     Blog        = require("../models/blogmodel"),
     middleware  = require("../middleware"),
     router      = express.Router({mergeParams: true});
+
     multer      = require("multer");
 
 // DEFINE THE STORAGE FOR BLOG PICS IN DISKSTORAGE
@@ -27,6 +28,9 @@ const fileFilter = (req, file, cb) => {
 
 var upload_blogpic = multer({storage: blogpic_storage, fileFilter: fileFilter});
 
+var moment = require('moment');
+
+
 // INDEX - SHOW ALL INSTANCES
 router.get("/", function(req, res){
     Blog.find({}, function(err, allBlogs){
@@ -44,15 +48,18 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 //CREATE - CREATE INSTANCE
+
 router.post("/", middleware.isLoggedIn, upload_blogpic.array('blogpicture', 10), function(req, res){
+    try{
         var name    = req.body.name;
         var image   = req.files.map(file => {return ("./" + file.path.slice(7))});
+
         var desc    = req.body.description;
         var author  = {
             id      : req.user._id,
             username: req.user.username
         };
-        var newBlog = {name: name, image: image, description: desc, author: author};
+        var newBlog = {name: name, image: image, description: desc, author: author, user : req.user._id};
         if(req.fileFilterError) {
             req.fileFilterError = false;
             req.flash("error","Insert images only");
@@ -65,18 +72,26 @@ router.post("/", middleware.isLoggedIn, upload_blogpic.array('blogpicture', 10),
             res.redirect("/blogs");
         }
     });
+      }catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+
 });
 
 // SHOW - MORE INFO PAGE
 router.get("/:id", function(req, res){
-    Blog.findById(req.params.id).populate("comments").exec(function(err, found){
+    Blog.findById(req.params.id).populate('comments').populate('user',['description1','username']).exec(function(err, found){
         if(err || !found){
             console.log(err);
             req.flash("error", "Blog not found");
             res.redirect("back");
         } else {
+
             console.log(found);
-            res.render("blogs/show", {blog: found});
+
+            res.render("blogs/show", {blog: found, moment : moment});
+
         }
     });
 });

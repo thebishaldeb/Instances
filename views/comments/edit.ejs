@@ -1,12 +1,11 @@
-<% include ../partials/header %>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-            <div class="card bg-light" style="padding : 10px; margin: 20px auto;width : 100%">
 
-                <h2 style="text-align: center">Edit Comment </h2>
+
+            <div class="collapse" id="collapseExample1<%= comment._id %>">
+            <div class="card bg-light" style="margin: 12px;box-shadow: none;">
+ 
+                
                 <div class="card-body">
-                    <form action="/blogs/<%= blog_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                    <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                         <div class="form-group">
                             <input class="form-control" type="text" name="comment[text]" placeholder="Edit Comment"
                                 value="<%= comment.text %>" required>
@@ -14,13 +13,8 @@
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">Update!</button>
                         </div>
-                        <a href="/blogs">Go Back</a>
                     </form>
-
+                </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<% include ../partials/footer %>
+       

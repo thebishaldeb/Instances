@@ -11,20 +11,24 @@
 
 <br>
 
-## Demo
-
-![Landing](./images/landing.png)
-![Home](./images/home.png)
-![Blog](./images/blog.png)
-
-<br>
-
 ## About
 
 This is a site to post blogs (here we call it Instances ). Anyone can read the blogs but needs to sign up or login to post one and also for commenting on the blogs. The website is still in development stage and is expected to have in the futture a Profile page for the users and also options to like the posts and chat with other users and also a better UI.
 
+## Demo
+
+|           Instance page             |         Blog page                    |
+| ------------------------------------| -------------------------------------|
+| ![alt-text-1](./images/instance.png)| ![alt-text-2](./images/blog_page.png)|
+
+<br>
 <br>
 
+|           Login page                |         Register page                |
+| ----------------------------------- | ------------------------------------ |
+| ![alt-text-1](./images/login.png)   | ![alt-text-2](./images/register.png) |
+
+<br>
 
 ## Tools used
 * NodeJS, ExpressJS, Mongoose
@@ -48,7 +52,7 @@ This is a site to post blogs (here we call it Instances ). Anyone can read the b
 * Follow the steps as following in the bash
 
 ```sh
- cd keep-clone
+ cd Instances
 
  npm install
 

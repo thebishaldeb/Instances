@@ -1,29 +1,17 @@
-<% include ../partials/header %>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6" style="margin: 10px auto">
-            <div class="card bg-light" style="padding: 10px;">
-                <div class="card-body">
-                    <h3 class="text-center">Add New Comment to <%= blog.name %></h1>
-                        <div style="width: 80%; margin: 25px auto;">
-                            <form action="/blogs/<%= blog._id %>/comments" method="POST">
+<div class="collapse" id="collapseExample">
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="comment[text]"
-                                        placeholder="Add Comment" required>
-                                </div>
+        <hr>
+    <form action="/blogs/<%= blog._id %>/comments" method="POST">
 
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block">Submit!</button>
-                                    
-                                </div>
-                                <a href="/blogs">Go Back</a>
-                            </form>
-                            
-                        </div>
-                </div>
-            </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="comment[text]" placeholder="Add Comment" required>
         </div>
-    </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Submit!</button>
+        </div>
+
+    </form>
+
+
 </div>
-<% include ../partials/footer %>
