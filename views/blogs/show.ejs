@@ -1,4 +1,5 @@
 <% include ../partials/header %>
+
 <div class="container">
     <div class="row">
         <div class="col-md-3">
@@ -23,21 +24,25 @@
                         <% if(blog.user.role){ %>
                         <li class="list-group-item"><strong>Role:</strong> <%= blog.user.role %></li>
                         <% } %>
-                        <% 
-                                    function formatDate(date) {
-                                        var d = new Date(date),
-                                            month = '' + (d.getMonth() + 1),
-                                            day = '' + d.getDate(),
-                                            year = d.getFullYear();
-                                    
-                                        if (month.length < 2) 
-                                            month = '0' + month;
-                                        if (day.length < 2) 
-                                            day = '0' + day;
-                                    
-                                        return [year, month, day].join('-');
-                                    }%>
-                        <% if(blog.user.phonenumber){ %>
+                        <% var month_name = function(dt){
+                            mlist = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+                              return mlist[dt.getMonth()];
+                            }; %>
+                        <% function formatDate(date) {
+                            var d = new Date(date),
+                            
+                                month = '' + (month_name(d)),
+                                day = '' + d.getDate(),
+                                year = d.getFullYear();
+                        
+                            
+                            if (day.length < 2) 
+                                day = '0' + day;
+                        
+                            return [day , month, year].join('-');
+                        }%>
+
+                       <% if(blog.user.phonenumber){ %>
                         <li class="list-group-item"><strong>Phonenumber:</strong> <%= blog.user.phonenumber %></li>
                         <% } %>
                         <% if(blog.user.email){ %>
@@ -78,7 +83,18 @@
                     <hr>
                     <h7>
                         Submitted by <strong><a href=""><%= blog.author.username %></a></strong> |
-                        <em> 10 days ago.</em>
+                       
+                                <% const date1 = new Date() %>
+                                <% const date2 = blog.date %>
+                                <% const diffTime = Math.abs(date2 - date1); %>
+                              
+                             <% const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); %> 
+                        
+                        <% if(diffDays > 7){ %>
+                        on<em class="text-primary"> <%= formatDate(blog.date) %></em>
+                        <%}else{ %> 
+                            <em><%= diffDays %>  </em> day ago
+                        <% } %> 
                     </h7>
                     <hr>
                     <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
@@ -103,7 +119,17 @@
                     <div class="card" style="margin : 10px;">
                         <div class="card-body">
                             <p>
-                                <%= comment.text %>
+                                    <% const date1 = new Date() %>
+                                    <% const date2 = comment.date %>
+                                    <% const diffTime = Math.abs(date2 - date1); %>
+                              
+                                    <% const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); %> 
+                       
+                                <%= comment.text %> |  <% if(diffDays > 8){ %>
+                                    on<em class="text-primary"> <%= formatDate(comment.date) %></em>
+                                    <%}else{ %> 
+                                        <em><%= diffDays %> </em>  days ago
+                                    <% } %> 
                             </p>
                             <hr>
                             <div class="chip">
