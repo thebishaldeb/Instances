@@ -15,7 +15,7 @@
         <% blogs.forEach(function(blog){ %>
         <div class="col-md-3 col-sm-6">
             <div class="card bg-light" style="padding : 12px 0; margin: 8px; ">
-                <img src="<%= blog.image %>" alt="<%= blog.name %>" style="height: 135px; width : 185px; margin: 2px auto;">
+                <img src="<%= blog.image[0] %>" alt="<%= blog.name %>" style="height: 135px; width : 185px; margin: 2px auto;">
                 <hr>
                 <div class="card-body" style="padding : 4px">
                     <h4 class="card-title"><%= blog.name %></h4>
