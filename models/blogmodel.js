@@ -12,14 +12,8 @@ var blogSchema = new mongoose.Schema({
         username: String
 
     },
-    likes:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Likes"
-    }],
-    dislikes:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Dislikes"
-    }],
+    likes:Number,
+    dislikes:Number,
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"

@@ -1,7 +1,6 @@
 var express     = require("express"),
     router      = express.Router({mergeParams: true}),
     Blog        = require("../models/blogmodel"),
-    Dislikes    = require("../models/dislikemodel"),
     Likes       = require("../models/likemodel"),
     middleware  = require("../middleware");
 
@@ -11,33 +10,61 @@ var express     = require("express"),
                 console.log(err);
                 res.redirect("/blogs");
             } else {
-                Dislikes.count({"id":found._id,"author.id": req.user._id}, function(err, count){
-                    console.log( "Number of dislikes: ", count );
-                        Likes.count({"id":found._id, "author.id": req.user._id},function(err,count1){
-                                console.log("Number of likes: ",count1);
-                               if(count==0 && count1==0){
-                                    Dislikes.create(req.body.dislike, function(err, dislike){
+                Likes.count({"id":found._id,"author.id":req.user._id,"like":false},function(err,count1){
+                    if(err){
+                        console.log(err);
+                        res.redirect("/blogs");
+                    }
+                    else{
+                        Likes.count({"id":found._id,"author.id":req.user._id,"like":true},function(err,count2){
+                            if(err){
+                                console.log(err);
+                                res.redirect("/blogs");
+                            }
+                            else{
+                                if(count1==0){
+                                    if(count2!=0){
+                                       Likes.deleteOne({"id":found._id,"author.id":req.user._id,"like":true},function(err){
+                                           console.log("Like deleted");
+                                            Likes.count({"id":found._id,"like":true},function(err,count3){
+                                                console.log("Total likes: "+count3);
+                                                found.likes = count3;
+                                            })
+                                       })
+                                    }
+                                    Likes.create({"author.id": req.user._id,"author.username": req.user.username,
+                                    "id": found._id,"like": false},function(err,like){
                                         if(err){
-                                            req.flash("error","Something went wrong!");
                                             console.log(err);
-                                        } else {
-                                            dislike.author.id = req.user._id;
-                                            dislike.author.username = req.user.username;
-                                            dislike.id = found._id;
-                                            dislike.save();
-                                            found.dislikes.push(dislike);
-                                            found.save();
-                                            res.redirect("/blogs/" + found._id);
+                                            res.redirect("/blogs");
                                         }
-                                    }); 
-                               }
-                               else{
-                                console.log("You have already liked this blog");
-                                res.redirect("/blogs/"+found._id);
-                               }
-                        });
-                });
-                
+                                        else{
+                                            Likes.count({"id":found._id,"like":false},function(err,count3){
+                                                console.log("Total dislikes: "+count3);
+                                                found.dislikes = count3;
+                                                found.save();
+                                                console.log("Successfully disliked");
+                                                res.redirect("/blogs/"+found._id);
+                                            })
+                                        }
+                                    })
+                                }
+                                else{
+                                    Likes.deleteOne({"id":found._id,"author.id":req.user._id,"like":false},function(err){
+                                        console.log("Dislike deleted: ");
+                                         Likes.count({"id":found._id,"like":false},function(err,count3){
+                                             console.log("Total dislikes: "+ count3);
+                                             found.dislikes = count3;
+                                             found.save();
+                                             console.log("You have already disliked this page");
+                                             res.redirect("/blogs/"+found._id);
+                                         })
+                                    })
+                                }
+                            }
+                        })
+                    }
+                })
             }
         });
     });

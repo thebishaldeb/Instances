@@ -66,20 +66,22 @@
             </div>
             <div class="card bg-light" style="margin: 10px;">
                 <div class="text-left">
+                    <div class="row">
+                        <div class="col-md-2">
                     <form action="/blogs/<%= blog._id %>/likes"
                         method="POST">
-                       <div class="form-group">
-                           <button class="btn btn-sm btn-outline-success">Like</button>
-                           <%= blog.likes.length %>
-                       </div>
+                           <button class="btn btn-sm btn-success"><i class='fa fa-thumbs-up' ></i></button>
+                           <%= blog.likes %>
                     </form>
+                        </div>
+                        <div class="col-md-6">
                     <form action="/blogs/<%= blog._id %>/dislikes"
                         method="POST">
-                       <div class="form-group">
-                           <button class="btn btn-outline-danger dev">Dislike</button>
-                           <%= blog.dislikes.length %>
-                       </div>
+                           <button class="btn btn-sm btn-success"><i class='fa fa-thumbs-down'></i></button>
+                           <%= blog.dislikes %>
                     </form>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-right">
                    <button class="btn btn-sm btn-success" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Add new comment</button>
