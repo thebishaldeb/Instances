@@ -91,7 +91,14 @@ nav.navbar {
     -webkit-box-shadow: none;
   }
   
-  
+  .nav {
+    font-size: 16px;
+  }
+
+  a {
+margin-left: 15px; 
+ }
+
   
   .navbar {
     text-transform: uppercase;
@@ -150,7 +157,7 @@ nav.navbar {
     padding: 10px 0;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     overflow: hidden;
   }
   
@@ -161,4 +168,6 @@ nav.navbar {
   }
   body{
     background-image: url("profilebg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
