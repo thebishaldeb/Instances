@@ -10,52 +10,95 @@
         <div class="container perl">
             <div class="registration_container" style="margin: 50px auto;">
                 <form action="/register" method="POST"
-                    style="padding: 10px; margin-bottom: 40px; background-color: white;">
+                    style="padding: 10px; margin-bottom: 40px; background-color: white;" enctype="multipart/form-data">
                     <div class="pink">
-                        <h1 style="font-size: 40px; color: green">Instances</h1>
+                        <h1 style="font-size: 40px; color: blueviolet">Instances</h1>
                         <hr>
                         <p style="text-align: center;"> Register down below and start making Instances! </p>
                     </div>
                     <div class="form-group row">
-                        <label for="firstname" class="col-sm-2 col-form-label">FirstName:</label>
-                        <div class="col-sm-10">
+                        <label for="firstname" class="col-sm-3 col-form-label">FirstName:</label>
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" type="text" name="firstname"
                                 placeholder="Enter First Name" pattern="[a-zA-Z]*" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="lastname" class="col-sm-2 col-form-label">LastName:</label>
-                        <div class="col-sm-10">
+                        <label for="lastname" class="col-sm-3 col-form-label">LastName:</label>
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" type="text" name="lastname"
                                 placeholder="Enter Last Name" pattern="[a-zA-Z]*" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="username" class="col-sm-2 col-form-label">UserName:</label>
-                        <div class="col-sm-10">
+                        <label for="username" class="col-sm-3 col-form-label">UserName:</label>
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" name="username" placeholder="Enter UserName"
                                 required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Password:</label>
-                        <div class="col-sm-10">
+                        <label for="password" class="col-sm-3 col-form-label">Password:</label>
+                        <div class="col-sm-9">
                             <input type="password" class="form-control" name="password" placeholder="Enter Password"
                                 required minlength="8">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Email:</label>
-                        <div class="col-sm-10">
-                            <input type="text" placeholder="Enter Email" id="email" name="email" class="form-control"
+                        <label for="email" class="col-sm-3 col-form-label">Email:</label>
+                        <div class="col-sm-9">
+                            <input type="email" placeholder="Enter Email" id="email" name="email" class="form-control"
                                 required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="age" class="col-sm-3 col-form-label">Age:</label>
+                        <div class="col-sm-9">
+                            <input type="number" placeholder="Enter Age" name="age" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="gender" class="col-sm-3 col-form-label">Gender:</label>
+                        <div class="col-sm-9">
+                            <input type="text" placeholder="Enter Gender" name="gender" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phonenumber" class="col-sm-3 col-form-label">Phone number:</label>
+                        <div class="col-sm-9">
+                            <input type="number" placeholder="Enter Phone Number" name="phonenumber" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="birthdate" class="col-sm-3 col-form-label">Birth-Date:</label>
+                        <div class="col-sm-9">
+                            <input type="date" placeholder="Enter Birth-Date" name="birthdate" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="profilepicture" class="col-sm-3 col-form-label">Profile-Picture:</label>
+                        <label class="btn btn-success form-control">
+                                <input type="file" name="profilepicture" class="form-control" style="display:none">
+                                Custom Upload
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <label for="description1" class="col-sm-3 col-form-label">Description:</label>
+                        <div class="col-sm-9">
+                            <textarea name="description1" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="role" class="col-sm-3 col-form-label">Role:</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="role" placeholder="Enter Role" class="form-control" required>
                         </div>
                     </div>
 
 
                     <button type="submit" class="btn btn-success"
                         style="border-radius: 15px; margin : 20px 50% 0 30%">Submit <i
-                            class="fas fa-arrow-right fa-0.5x"></i></button>
+                            class="fas fa-arrow-right fa-0.5x"></button>
 
                 </form>
             </div>
