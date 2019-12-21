@@ -43,7 +43,7 @@ router.get("/", function(req, res){
 });
 
 //NEW - ADD INSTANCE
-router.get("/new",/* middleware.isLoggedIn,*/ function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("blogs/new");
 });
 
