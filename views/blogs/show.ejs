@@ -1,5 +1,17 @@
 <% include ../partials/header %>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+    window.onload = function(){
+        // Select Description Textarea
+        var description = document.getElementById('description');
+        var input = description.innerHTML;
+        // Make markdown preview of description
+        var marked_desc = marked(input);
+        description.innerHTML = marked_desc;
+    };
+</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-3">
@@ -64,7 +76,7 @@
                             </a>
                           </div>
                     <hr>
-                    <p class="card-text"><%= blog.description %></p>
+                    <p class="card-text" id="description"><%= blog.description %></p>
                     <hr>
                     <h7>
                         Submitted by <strong><a href=""><%= blog.user.username %></a></strong> |
