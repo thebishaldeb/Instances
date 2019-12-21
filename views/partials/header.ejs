@@ -11,7 +11,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">Instances</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -29,16 +29,17 @@
                         <a class="nav-link" href="/register"><button class="btn btn-sm btn-primary mx-2" style="width: 100%;">Register</button></a>
                     </li>
                     <% } else { %>
-                    <ul class="nav navbar-right top-nav">
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none;"></i><%= currentUser.username %><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                                <a href="../user/<%= currentUser.username %>" style="text-decoration: none;" ><i class="fa fa-fw fa-user"></i> Account</a>
-                                <li class="divider"></li>
-                         <a href="#" style="text-decoration: none;" ><i class="far fa-images"></i> Posts <%=  %>  </a>
-                            <li class="divider"></li>
-                        <a href="/logout" style="text-decoration: none;" ><i class="fa fa-fw fa-power-off" ></i> Log Out</a>                        
-                        </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="fa fa-user-circle"></i> <%= currentUser.username %>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/user/<%= currentUser.username %>"> <i class="fa fa-user"></i> My Profile</a>
+                            <a class="dropdown-item" href="#"> <i class="far fa-images"> </i> Posts <%=  %>  </a>
+                            <div class="divider"></div>
+                            <a class="dropdown-item" href="/logout"> <i class="fa fa-sign-out-alt"></i> Logout</a>
+                        </div>
                     </li>
                 </ul> 
                     <% } %>
@@ -57,4 +58,4 @@
     </div>
 
     <body>
-    <!--Body section is closed inside footer.ejs-->
+        <!--Body section is closed inside footer.ejs-->
