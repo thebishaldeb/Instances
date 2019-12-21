@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
 //SCHEMA SETUP
 var blogSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String,
-    author: {
-        id: {
+    name        : String,
+    image       : [String],
+    description : String,
+    author      : {
+        id      : {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
