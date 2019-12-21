@@ -7,36 +7,38 @@
 
 <body>
     <div class="image">
-        <div class="container perl">
-            <div class="registration_container" style="margin: 50px auto;">
-                <form action="/login" method="POST"
-                    style="padding: 10px; margin-bottom: 40px; background-color: white;">
-                    <div class="pink">
-                        <h1 style="font-size: 40px; color: blueviolet"><i class="fas fa-sign-in-alt"></i> Login</h1>
+        <div class="container">
+            <div class="card" class="registration_container">
+                <div class="card-body">
+                    <form action="/login" method="POST">
+                        <div class="pink">
+                            <h2 style="color: blueviolet" class="text-center">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </h2>
+                        </div>
                         <hr>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="username" class="col-sm-2 col-form-label">UserName:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" placeholder="Enter UserName"
-                                required>
+                        <div class="form-group row">
+                            <label for="username" class="col-md-2 col-form-label">UserName:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="username" placeholder="Enter UserName"
+                                    required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Password:</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        <div class="form-group row">
+                            <label for="password" class="col-md-2 col-form-label">Password:</label>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" name="password"
+                                    placeholder="Enter Password">
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group row">
+                            <button type="submit" class="btn btn-success b-rounded">Login <i
+                                    class="fas fa-arrow-right fa-0.5x"></i></button>
+                        </div>
 
 
-
-                    <button type="submit" class="btn btn-success"
-                        style="border-radius: 15px; margin : 20px 50% 0 30%">Login <i
-                            class="fas fa-arrow-right fa-0.5x"></i></button>
-
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
