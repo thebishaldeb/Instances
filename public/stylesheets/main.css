@@ -7,6 +7,7 @@ html {
 
 body {
   background-image: url("profilebg.jpg");
+  background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   margin-top: 75px;
@@ -59,13 +60,35 @@ input[type=text], input[type=password] {
   font-size: 13px;
 }
 
-input[type=text]:hover, input[type=password]:hover {
-  border-bottom-color: blue;
-}
-
 .form-control:focus {
   border-color: white;
   border-bottom-color: blue;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=number],
+  input[type=date] {
+    border-color: white;
+    border-bottom-color: lightgray;
+    border-radius: 0;
+    border-bottom-width: 1.5px;
+    font-size: 13px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    overflow: hidden;
+  }
+  
+  .dev {
+    padding: 2px;
+    border-radius: 9px;
+    width: 60px;
+  }

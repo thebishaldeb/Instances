@@ -10,7 +10,7 @@
         <div class="container perl">
             <div class="registration_container" style="margin: 50px auto;">
                 <form action="/register" method="POST"
-                    style="padding: 10px; margin-bottom: 40px; background-color: white;">
+                    style="padding: 10px; margin-bottom: 40px; background-color: white;" enctype="multipart/form-data">
                     <div class="pink">
                         <h1 style="font-size: 40px; color: blueviolet">Instances</h1>
                         <hr>
@@ -77,9 +77,10 @@
                     </div>
                     <div class="form-group row">
                         <label for="profilepicture" class="col-sm-3 col-form-label">Profile-Picture:</label>
-                        <div class="col-sm-9">
-                            <input type="text" placeholder="Enter Profile-Picture" name="profilepicture" class="form-control" required>
-                        </div>
+                        <label class="btn btn-success form-control">
+                                <input type="file" name="profilepicture" class="form-control" style="display:none">
+                                Custom Upload
+                        </label>
                     </div>
                     <div class="form-group row">
                         <label for="description1" class="col-sm-3 col-form-label">Description:</label>
