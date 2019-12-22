@@ -12,6 +12,8 @@ var blogSchema = new mongoose.Schema({
         username: String
 
     },
+    likes:Number,
+    dislikes:Number,
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
