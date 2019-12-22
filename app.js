@@ -12,7 +12,9 @@ var express         = require("express"),
 // REQUIRED ROUTES
 var blogsRoutes     = require("./routes/blogroute"),
     commentRoutes   = require("./routes/commentroute"),
-    indexRoutes     = require("./routes/indexroute");
+    indexRoutes     = require("./routes/indexroute"),
+    likeRoutes      = require("./routes/likeroute"),
+    dislikeRoutes   = require("./routes/dislikeroute"),
     profileRoutes     = require("./routes/profileroute");
 //APP INITIALIZE
 mongoose.connect("mongodb://localhost:27017/instances",
@@ -47,6 +49,9 @@ app.use(function (req, res, next) {
 app.use(indexRoutes);
 app.use("/blogs",blogsRoutes);
 app.use("/blogs/:id/comments",commentRoutes);
+app.use("/blogs/:id/likes",likeRoutes);
+app.use("/blogs/:id/dislikes",dislikeRoutes);
+
 app.use("/user", profileRoutes);
 
 app.listen(1500, function(){
