@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="../../public/stylesheets/registration.css">
     <style>
-        label {
+        .col-form-label {
             color: #17a2b8;
         }
     </style>
@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="row ">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-8 mx-auto offset-md-2">
                 <div class="card" style="margin: 10px auto;padding : 30px">
 
                     <h1 class="text-center" style="color : #17a2b8;">Edit Profile</h1>
@@ -21,88 +21,89 @@
                         <form action="/user/edit/<%= user._id %>?_method=PUT" method="POST">
                             <input type="hidden" name="_method" value="PUT">
                             <div class="form-group row">
-                                <label for="firstname" class="col-3 col-form-label">FirstName:</label>
-                                <div class="col-9">
+                                <label for="firstname" class="col-md-3 col-form-label">FirstName:</label>
+                                <div class="col-md-9">
                                     <input type="text" class="form-control" type="text" name="firstname"
                                         value="<%= user.firstname %>" placeholder="Enter First Name" pattern="[a-zA-Z]*"
                                         required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="lastname" class="col-3 col-form-label">LastName:</label>
-                                <div class="col-9">
+                                <label for="lastname" class="col-md-3 col-form-label">LastName:</label>
+                                <div class="col-md-9">
                                     <input type="text" class="form-control" type="text" name="lastname"
                                         value="<%= user.lastname %>" placeholder="Enter Last Name" pattern="[a-zA-Z]*"
                                         required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="username" class="col-3 col-form-label">UserName:</label>
-                                <div class="col-9">
+                                <label for="username" class="col-md-3 col-form-label">UserName:</label>
+                                <div class="col-md-9">
                                     <input type="text" value="<%= user.username %>" class="form-control" name="username"
                                         placeholder="Enter UserName" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-3 col-form-label">Email:</label>
-                                <div class="col-9">
+                                <label for="email" class="col-md-3 col-form-label">Email:</label>
+                                <div class="col-md-9">
                                     <input type="email" value="<%= user.email %>" placeholder="Enter Email" id="email"
                                         name="email" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="age" class="col-3 col-form-label">Age:</label>
-                                <div class="col-9">
+                                <label for="age" class="col-md-3 col-form-label">Age:</label>
+                                <div class="col-md-9">
                                     <input type="number" value="<%= user.age %>" placeholder="Enter Age" name="age"
                                         class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="gender" class="col-3 col-form-label">Gender:</label>
-                                <div class="col-9">
+                                <label for="gender" class="col-md-3 col-form-label">Gender:</label>
+                                <div class="col-md-9">
                                     <input type="text" value="<%= user.gender %>" placeholder="Enter Gender"
                                         name="gender" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="phonenumber" class="col-3 col-form-label">Phone number:</label>
-                                <div class="col-9">
+                                <label for="phonenumber" class="col-md-3 col-form-label">Phone number:</label>
+                                <div class="col-md-9">
                                     <input type="number" value="<%= user.phonenumber %>"
                                         placeholder="Enter Phone Number" name="phonenumber" class="form-control"
                                         required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="birthdate" class="col-3 col-form-label">Birth-Date:</label>
-                                <div class="col-9">
+                                <label for="birthdate" class="col-md-3 col-form-label">Birth-Date:</label>
+                                <div class="col-md-9">
                                     <input value="<%= user.birthdate %>" type="text" onfocus="(this.type='date')"  id="date"
                                        placeholder="Enter birthdate" name="birthdate" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="profilepicture" class="col-3 col-form-label">Profile-Picture:</label>
-                                <div class="col-9">
+                                <label for="profilepicture" class="col-md-3 col-form-label">Profile-Picture:</label>
+                                <div class="col-md-9">
                                     <input type="text" value="<%= user.profilepicture %>"
                                         placeholder="Enter Profile-Picture" name="profilepicture" class="form-control"
                                         required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="description1" class="col-3 col-form-label">Description:</label>
-                                <div class="col-9">
+                                <label for="description1" class="col-md-3 col-form-label">Description:</label>
+                                <div class="col-md-9">
                                     <textarea name="description1" class="form-control"
                                         required><%= user.description1 %></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="role" class="col-3 col-form-label">Role:</label>
-                                <div class="col-9">
+                                <label for="role" class="col-md-3 col-form-label">Role:</label>
+                                <div class="col-md-9">
                                     <input type="text" name="role" value="<%= user.role %>" placeholder="Enter Role"
                                         class="form-control" required>
                                 </div>
                             </div>
-                            <button class="btn btn-primary">Edit Profile</button>
+                            <button class="btn btn-sm btn-primary">Edit Profile</button>
+                            <button class="btn btn-sm btn-link"><a href="/user/<%= user.username %>"> Cancel </a></button>
 
 
                         </form>
