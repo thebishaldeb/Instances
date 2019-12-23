@@ -168,8 +168,9 @@ margin-left: 15px;
   }
   body{
     /*background-color: red;*/
-    background-image:url(ishaan.jpg);
-    /*background-blend-mode: screen;*/
+    
+    background-image:url(background.jpg);
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right;
