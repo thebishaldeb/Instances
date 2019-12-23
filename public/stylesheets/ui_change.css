@@ -1,0 +1,107 @@
+*{
+	scroll-behavior: smooth;
+}
+body{
+	overflow-x: hidden;
+}
+
+/*section one home*/
+.home{
+	width: 100vw;
+	height: 100vh;
+	background-image:url(ishaan.jpg);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+}
+
+.homeContent{
+	        background-color: transparent;
+    color: #f1f1f1c7;
+    margin-bottom: 0;
+    /* padding: 2rem 2rem; */
+    padding-top: 9%;
+    width: 75%;
+    padding-left: 5%;
+}
+
+
+.homeContent h1{
+	text-transform: uppercase;
+	font-size: 5rem;
+	letter-spacing: 1px;
+	text-shadow: 2px 2px 8px rgba(255,255,255,0.3);
+
+}
+
+#introInstance{
+text-shadow: 2px 2px 8px rgba(255,255,255,0.3);
+    padding-left: 5px;
+
+}
+
+.jumbotron__button{
+	text-decoration:none;
+	color: #f1f1f1c7;
+	padding: 1rem;
+	border:2px #f1f1f1c7 solid;
+	border-radius: 15px;
+	margin: 0;
+	transition: background 0.5s,color 0.5s;
+}
+.jumbotron__button:hover{
+	color: black;
+	background: #f1f1f1c7;
+	text-decoration: none;
+}
+.homeContent p:nth-child(3){
+	margin-top: 2rem;
+}
+
+
+/*section two recentInstances*/
+
+
+
+.recentInstances{
+	width:100vw;
+	background: url(ishaan.jpg);
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sectionTitle{
+	color: #f1f1f1c7;
+	font-size: 4rem;
+    color: #f1f1f1c7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(255,255,255,0.45);
+    max-width: fit-content;
+    margin: 0rem auto;
+    padding: 2rem 0;
+
+}
+
+
+.downArrow{
+	padding: 1rem;
+	    top: 36%;
+    color: #f1f1f1c7;
+    position: absolute;
+    left: 50%;
+    /* bottom: 26%; */
+    transform: translate(-50%,0);
+    z-index: 10;
+    text-shadow: 2px 2px 8px rgba(255,255,255,0.7);
+    transition: top 0.2s
+
+
+}
+
+.downArrow:hover{
+	cursor: pointer;
+	top: 37%;
+
+}

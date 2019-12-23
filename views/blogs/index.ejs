@@ -1,21 +1,66 @@
 <% include ../partials/header %>
-
-<div class="container">
-    <div class="jumbotron text-center">
-        <div class="container">
-            <h1>Welcome To Instances!</h1>
-            <p>Stories and Journeys and Life.</p>
-            <p>
-                <a class="btn btn-primary" href="/blogs/new">Add New Instance</a>
-            </p>
+<section class="home">
+    <!-- <div class="container"> -->
+        <div class="homeContent">
+            <div class="container">
+                <h1>Instances</h1>
+                <p id="introInstance"> The real voyage of discovery consists not ine seeking new lanscapes,but in having new eyes.So here it is "Instances" The Photo Diary for Explorers and Travel Junkies.
+                    Stories and Journeys and Life.</p>
+                <p>
+                    <a class="jumbotron__button" href="/blogs/new">Add New Instance</a>
+                </p>
+            </div>
         </div>
-    </div>
+        <i class="fas fa-chevron-down fa-3x downArrow"></i>
+</section>
 
+<section class="recentInstances" id="recentBlogs">
+    <div class="container">
+        <h1 class="sectionTitle">Blogs</h1>
+    </div>
+    
     <div class="row text-center">
         <% blogs.forEach(function(blog){ %>
-        <div class="col-md-3 col-sm-6">
-            <div class="card bg-light" style="padding : 12px 0; margin: 8px; ">
-                <img src="<%= blog.image[0] %>" alt="<%= blog.name %>" style="height: 135px; width : 185px; margin: 2px auto;">
+
+        <div class="col-md-4 ">
+            <div class="container1">
+                <div class="card1">
+                   <div class="card__image-container">
+                       
+                    <img class="card__image"  src="<%= blog.image %>" alt="<%= blog.name %>" >
+                     <!-- <img class="card__image" src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2126&q=80" alt=""> -->
+                  </div>
+                    
+                    <svg class="card__svg" viewBox="0 0 800 500">
+              
+                      <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+                      <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
+                    </svg>
+                  
+                   <div class="card__content">
+                     <h1 class="card__title"><%= blog.name %></h1>
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolor praesentium at quod autem omnis, amet eaque unde perspiciatis adipisci possimus quam facere illo et quisquam quia earum nesciunt porro.</p>
+                  </div>
+                  <p class="readMore">
+                    <a href="/blogs/<%= blog._id %>" class="card__button">Read More</a>
+                </p>
+                </div>
+              </div>
+            <!-- <div class="card1">
+                <div class="front">
+                    <img src="<%= blog.image %>" alt="<%= blog.name %>" >
+                </div>
+                <div class="back">
+                    <div class="back-content">
+                        <h4 class="card-title"><%= blog.name %></h4>
+                        <p>
+                            <a href="/blogs/<%= blog._id %>" class="btn btn-sm btn-primary">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="card bg-light" style="padding : 12px 0; margin: 8px; ">
+                <img src="<%= blog.image %>" alt="<%= blog.name %>" >
                 <hr>
                 <div class="card-body" style="padding : 4px">
                     <h4 class="card-title"><%= blog.name %></h4>
@@ -23,10 +68,19 @@
                         <a href="/blogs/<%= blog._id %>" class="btn btn-sm btn-primary">More Info</a>
                     </p>
                 </div>
-            </div>
+            </div> -->
         </div>
         <% }); %>
     </div>
+</section>
+    
 </div>
+
+<script>
+    const downArrow = document.querySelector(".downArrow");
+    downArrow.addEventListener("click",()=>{
+        window.location.href = "#recentBlogs";
+    });
+</script>
 <% include ../partials/footer %>
 

@@ -167,7 +167,12 @@ margin-left: 15px;
     width: 60px;
   }
   body{
-    background-image: url("profilebg.jpg");
+    /*background-color: red;*/
+    
+    background-image:url(background.jpg);
+    
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top right;
+    
   }
