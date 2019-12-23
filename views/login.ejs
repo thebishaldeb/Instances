@@ -8,7 +8,7 @@
 <body>
     <div class="image">
         <div class="container">
-            <div class="card bg-light">
+            <div class="card bg-light col-md-8 offset-md-2">
                 <div class="card-body">
                     <form action="/login" method="POST">
                         <div class="pink">
@@ -18,15 +18,15 @@
                         </div>
                         <hr>
                         <div class="form-group row">
-                            <label for="username" class="col-md-2 col-form-label">UserName:</label>
-                            <div class="col-md-10">
+                            <label for="username" class="col-md-3 col-form-label">UserName:</label>
+                            <div class="col-md-9">
                                 <input type="text" class="form-control" name="username" placeholder="Enter UserName"
                                     required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-md-2 col-form-label">Password:</label>
-                            <div class="col-md-10">
+                            <label for="password" class="col-md-3 col-form-label">Password:</label>
+                            <div class="col-md-9">
                                 <input type="password" class="form-control" name="password"
                                     placeholder="Enter Password">
                             </div>
@@ -35,8 +35,6 @@
                             <button type="submit" class="btn btn-success b-rounded">Login <i
                                     class="fas fa-arrow-right fa-0.5x"></i></button>
                         </div>
-
-
                     </form>
                 </div>
             </div>
