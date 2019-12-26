@@ -52,31 +52,10 @@
                             console.log(marked_desc, description);
                         }
                     </script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/geolocator/2.1.5/geolocator.min.js"></script>
-                    <script>
-                        geolocator.config({
-                            language: "en",
-                        })
-                        window.onload = function(){
-                            var options = {
-                                enableHighAccuracy: true,
-                                timeout: 5000,
-                                maximumWait:10000,
-                                maximumAge: 0,
-                                desiredAccuracy: 30,
-                                fallbackToIP: true,
-                            }
-                            geolocator.locateByIP(options, function(err,location){
-                                if(err) return console.log(err)
-                                console.log(location.address.city);
-                                document.getElementById("city-name").innerHTML = 'Location:-' + location.address.city;
-                            })
-                        }
-                    </script>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <% include ../partials/footer %>
