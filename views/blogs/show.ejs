@@ -23,7 +23,9 @@
                         <% if(blog.user){%>
 
                         <li class="list-group-item" active>
-                            <h5><%= blog.user.username %></h5>
+                            <h5>
+                                <%= blog.user.username %>
+                            </h5>
                         </li>
                         <% if(blog.user.description1){ %>
                         <li class="list-group-item"><em><%= blog.user.description1 %></em>
@@ -33,7 +35,9 @@
                                     class="btn btn-primary btn-sm">View Profile</button></a></li>
                         <% } else { %>
                         <li class="list-group-item" active>
-                            <h5><%= blog.user.username %></h5>
+                            <h5>
+                                <%= blog.user.username %>
+                            </h5>
                         </li>
 
                         <% } %>
@@ -45,7 +49,11 @@
             <div class="card bg-light">
                 <div class="card-body">
                     <div class="card-title">
-                        <h2 class="text-center" style="text-transform: uppercase;"><a href=""><%= blog.name %></a></h2>
+                        <h2 class="text-center" style="text-transform: uppercase;">
+                            <a href="">
+                                <%= blog.name %>
+                            </a>
+                        </h2>
                     </div>
                     <hr>
                     <!-- <img class="img-responsive" src=".<%= blog.image[0] %>" alt="<%= blog.name %>"/> -->
@@ -81,7 +89,9 @@
                         </a>
                     </div>
                     <hr>
-                    <p class="card-text" id="description"><%= blog.description %></p>
+                    <p class="card-text" id="description">
+                        <%= blog.description %>
+                    </p>
                     <hr class="my-0">
                     <p>
                         Submitted by <strong><a href=""><%= blog.user.username %></a></strong> |
@@ -143,7 +153,9 @@
                                 <a href="/user/<%= comment.author.username %>"><%= comment.author.username %></a>
                             </b>
                             <br>
-                            <p class="comment mb-0"><%= comment.text %></p>
+                            <p class="comment mb-0">
+                                <%= comment.text %>
+                            </p>
                             <p class="small text-secondary">
                                 <% const date1 = new Date() %>
                                 <% const date2 = comment.date %>

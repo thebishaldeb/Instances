@@ -6,7 +6,8 @@
 
             <div class="card bg-light p-0">
                 <div class="card-header" style="background:  #17a2b8;">
-                    <img src="<%= user1.profilepicture %>" style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
+                    <img src="<%= user1.profilepicture %>"
+                        style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
                     <h5 class="text-center">Username: <%= user1.username %></h5>
                 </div>
                 <div class="card-body">
@@ -14,14 +15,15 @@
                         <li class="list-group-item"><strong>Firstname:</strong> <%= user1.firstname %></li>
                         <li class="list-group-item"><strong>LastName:</strong> <%= user1.lastname %></li>
                         <li class="list-group-item"><strong>Description:</strong> <%= user1.description1 %></li>
-                        
+
                         <li class="list-group-item"><strong>Role:</strong> <%= user1.role %></li>
-                        <li class="list-group-item"><strong>BirthDate:</strong> <%= moment(user1.birthdate).format("Do MMM YYYY") %></li>
+                        <li class="list-group-item"><strong>BirthDate:</strong>
+                            <%= moment(user1.birthdate).format("Do MMM YYYY") %></li>
                         <li class="list-group-item"><strong>Email: </strong> <%= user1.email %></li>
                         <li class="list-group-item"><strong>PhoneNumber: </strong> <%= user1.phonenumber %></li>
                         <li class="list-group-item"><strong>Age: </strong> <%= user1.age %></li>
                         <li class="list-group-item"><strong>Gender: </strong> <%= user1.gender %></li>
-                       
+
                         <% if(user1._id.equals(currentUser._id)){ %>
                         <li class="list-group-item"><a href="/user/edit/<%= user1._id %>"><button
                                     class="btn btn-primary btn-sm mx-auto">Edit Profile</button></a></li>

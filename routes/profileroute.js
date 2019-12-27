@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router({
     mergeParams: true
 });
-var middleware  = require("../middleware")
+var middleware = require("../middleware")
 const User = require('../models/usermodel');
 const mongoose = require('mongoose');
 const moment = require('moment');
 
-router.get('/:username',middleware.isLoggedIn, (req, res) => {
+router.get('/:username', middleware.isLoggedIn, (req, res) => {
     User.findOne({
         username: req.params.username
     }).then(user1 => {
@@ -18,9 +18,9 @@ router.get('/:username',middleware.isLoggedIn, (req, res) => {
     })
 });
 
-router.get('/edit/:id',middleware.isLoggedIn, (req, res) => {
+router.get('/edit/:id', middleware.isLoggedIn, (req, res) => {
     User.findOne({
-        _id : req.params.id
+        _id: req.params.id
     }).then(user => {
         res.render('profile/profile_edit', {
             user: user,
@@ -29,14 +29,14 @@ router.get('/edit/:id',middleware.isLoggedIn, (req, res) => {
     })
 })
 
-router.put('/edit/:id',middleware.isLoggedIn, async (req, res) => {
+router.put('/edit/:id', middleware.isLoggedIn, async(req, res) => {
     try {
         const user2 = await User.findOne({
             _id: req.params.id
         });
         if (req.body.username != user2.username) {
             const user1 = await User.findOne({
-                username : req.body.username
+                username: req.body.username
             });
             if (!user1) {
 
@@ -78,7 +78,7 @@ router.put('/edit/:id',middleware.isLoggedIn, async (req, res) => {
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error')
-}
+    }
 })
 
 module.exports = router;
