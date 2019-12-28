@@ -5,6 +5,7 @@
 
 
             <div class="card bg-light p-0">
+
                 <div class="card-header" style="background:  #17a2b8;">
                     <img src="<%= user1.profilepicture %>" style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
                     <h5 class="text-center">Username: <%= user1.username %></h5>
@@ -28,8 +29,63 @@
                         <% } %>
                     </ul>
                 </div>
+
+                <br>
+                <br>
+                <div class="card-header" style="background: lavender">
+                    <img src="<%= user1.profilepicture %>" style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
+                    <h5 class="text-center"><strong>Blogs</strong></h5>
+                </div>
+        
+                <div class="container">
+        
+                    <div class="row text-center">
+                    
+                        <% myBlogs.forEach(function(myBlog){ %>
+                    
+                            <div class="col-md-4 ">
+                    
+                                <div class="card bg-light" style="padding : 12px 0; margin: 8px; ">
+                                        <img src="<%= myBlog.image[0] %>" alt="<%= myBlog.name %>" style="height: 135px; width : 185px; margin: 2px auto;">
+                                        <hr>
+                                        
+                                        <div class="card-body" style="padding : 4px">
+                
+                                            <h4 class="card-title"><%= myBlog.name %></h4>
+                                            
+                                            <div class="btn-group btn-group-xs">
+                                            
+                                                <a href="../blogs/<%= myBlog._id %>" class="btn btn-sm btn-primary">More Info</a>
+                
+                                                <% if(user1._id.equals(currentUser._id)){ %>
+                                                <a href="../blogs/<%= myBlog._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                                                <% } %>
+        
+                                                <% if(user1._id.equals(currentUser._id)){ %>
+                                                <form class="deleteForm" action="../blogs/<%=myBlog._id %>/myBlogs?_method=DELETE" method="POST">
+                                                    <button class="btn btn-sm btn-danger"><a onClick="javascript: return confirm('Are you sure you want to delete this post?');"  style='color:#fff'>Delete</a></button>
+                                                </form>
+                                                <% } %>
+        
+                                            </div>
+                
+                                        </div>
+                                            
+                                </div>
+                                
+                            </div>
+                        <% }); %>
+                    </div>
+                
+                </div>
+                
+        
+
+
             </div>
         </div>
+
+
     </div>
 </div>
 <% include ../partials/footer %>
