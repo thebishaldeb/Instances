@@ -4,6 +4,7 @@ const router = express.Router({
 });
 var middleware = require("../middleware")
 const User = require('../models/usermodel');
+const Blog= require("../models/blogmodel");
 const mongoose = require('mongoose');
 const moment = require('moment');
 
