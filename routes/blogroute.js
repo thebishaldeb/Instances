@@ -125,4 +125,17 @@ router.delete("/:id", middleware.ifOwned, function (req, res) {
     });
 });  
 
+
+// DELETE MYBLOG AND REDIRECT TO THE SAME PAGE
+router.delete("/:id/myBlogs", middleware.ifOwned, function (req, res) {
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect('back');
+        } else {
+            res.redirect('back');
+        }   
+    });
+});  
+
+
 module.exports = router;
