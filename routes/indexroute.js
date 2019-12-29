@@ -49,7 +49,7 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
         }
         var newUser = new User({username , email, lastname , 
         firstname , gender , description , birthdate , role , age , 
-        profilepicture : "../" + req.file.path.slice(8) , phonenumber});
+        profilepicture : "../" + req.file.path.slice(7) , phonenumber});
         User.register(newUser, req.body.password, function(err, user){
 
         if(err){
