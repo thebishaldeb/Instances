@@ -40,7 +40,7 @@ router.get("/register", function(req, res){
 
 router.post("/register", upload_profilepic.single('profilepicture'), function(req, res){
     var {username , email, lastname , firstname , gender 
-        , description , birthdate , role , age ,
+        , description1 , birthdate , role , age ,
          phonenumber} = req.body;
         if(req.fileFilterError) {
             req.flash("error", "Insert images only for profile picture");
@@ -48,7 +48,7 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
             return res.redirect("/register");
         }
         var newUser = new User({username , email, lastname , 
-        firstname , gender , description , birthdate , role , age , 
+        firstname , gender , description1 , birthdate , role , age , 
         profilepicture : "../" + req.file.path.slice(8) , phonenumber});
         User.register(newUser, req.body.password, function(err, user){
 
