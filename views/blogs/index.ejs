@@ -17,7 +17,9 @@
             <div class="card bg-light my-2">
                 <img src="<%= blog.image[0] %>" alt="Image_of_<%= blog.name %>" class="card-img-top img-fluid">
                 <div class="card-body">
-                    <h5 class="card-title"><%= blog.name %></h5>
+                    <h5 class="card-title">
+                        <%= blog.name %>
+                    </h5>
                     <p>
                         <a href="/blogs/<%= blog._id %>" class="btn btn-sm btn-primary">More Info</a>
                     </p>
@@ -28,4 +30,3 @@
     </div>
 </div>
 <% include ../partials/footer %>
-

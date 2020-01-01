@@ -1,19 +1,19 @@
 var mongoose = require("mongoose");
 //SCHEMA SETUP
 var blogSchema = new mongoose.Schema({
-    name        : String,
-    image       : [String],
-    description : String,
-    author      : {
-        id      : {
+    name: String,
+    image: [String],
+    description: String,
+    author: {
+        id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
         username: String
 
     },
-    likes:Number,
-    dislikes:Number,
+    likes: Number,
+    dislikes: Number,
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
@@ -22,9 +22,9 @@ var blogSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    date : {
-        type : Date,
-        default : Date.now()
+    date: {
+        type: Date,
+        default: Date.now()
     }
 
 
