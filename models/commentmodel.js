@@ -1,21 +1,21 @@
-var mongoose        = require("mongoose");
+var mongoose = require("mongoose");
 
-var commentSchema   = mongoose.Schema({
-    text    : String,
-    author  : {
-        id  : {
-            type    : mongoose.Schema.Types.ObjectId,
-            ref     : "User"
+var commentSchema = mongoose.Schema({
+    text: String,
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         },
-        username    : String
+        username: String
     },
-    date : {
-        type : Date,
-        default : Date.now
+    date: {
+        type: Date,
+        default: Date.now
     },
-    user : {
-        type    : mongoose.Schema.Types.ObjectId,
-        ref     : "User" 
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 })
 

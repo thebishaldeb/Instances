@@ -10,8 +10,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <form action="/register" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="/register" method="POST" enctype="multipart/form-data">
                         <div class="pink">
                             <h1 style="font-size: 40px; color: blueviolet">Instances</h1>
                             <hr>
@@ -58,11 +57,24 @@
                                 <input type="number" placeholder="Enter Age" name="age" class="form-control" required>
                             </div>
                         </div>
+                        <br>
                         <div class="form-group row">
                             <label for="gender" class="col-md-3 col-form-label">Gender:</label>
                             <div class="col-md-9">
-                                <input type="text" placeholder="Enter Gender" name="gender" class="form-control"
-                                    required>
+                                <!--<input type="text" placeholder="Enter Gender" name="gender" class="form-control"
+                                    required>-->    
+                                    
+                                <div class="radio">
+                                  <label><input type="radio" name="gender" value="Male"><span class="text-muted">Male</span></label>
+                                </div>
+                                <div class="radio">
+                                  <label><input type="radio" name="gender" value="Female"><span class="text-muted">Female</span></label>
+                                </div>
+                                <div class="radio">
+                                  <label><input type="radio" name="gender" value="Prefer not to tell"><span class="text-muted">Prefer not to tell</span></label>
+                                </div>
+                                    
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -88,7 +100,8 @@
                         <div class="form-group row">
                             <label for="description1" class="col-md-3 col-form-label">Description:</label>
                             <div class="col-md-9">
-                                <textarea name="description1" class="form-control form-control-sm" placeholder="Tell something about you" required></textarea>
+                                <textarea name="description1" class="form-control form-control-sm"
+                                    placeholder="Tell something about you" required></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
