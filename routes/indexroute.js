@@ -70,15 +70,23 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
 
 // LOGIN
 router.get("/login", function(req, res){
+    if (req.query.origin) {
+        req.session.returnTo = req.query.origin;
+    } else {
+        req.session.returnTo = req.header('Referer');
+    }
     res.render("login");
 });
 
-router.post("/login", passport.authenticate("local",
-    {
-        successRedirect: "/blogs",
-        failureRedirect: "/login",
-        failureFlash: true
-    }), function(req, res){
+router.post("/login", passport.authenticate("local"),
+    // {
+    //     successRedirect: "/blogs",
+    //     failureRedirect: "/login",
+    //     failureFlash: true
+    // }), 
+    function(req, res){
+        res.redirect(req.session.returnTo || '/blogs');
+        delete req.session.returnTo;
 });
 
 //LOGOUT 
