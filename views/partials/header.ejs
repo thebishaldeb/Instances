@@ -23,26 +23,32 @@
                 <ul class="navbar-nav ml-auto">
                     <% if(!currentUser) { %>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login"><button class="btn btn-sm btn-primary mx-2" style="width: 100%;">Login</button></a>
+                        <a class="nav-link" href="/login"><button class="btn btn-sm btn-primary mx-2"
+                                style="width: 100%;">Login</button></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/register"><button class="btn btn-sm btn-primary mx-2" style="width: 100%;">Register</button></a>
+                        <a class="nav-link" href="/register"><button class="btn btn-sm btn-primary mx-2"
+                                style="width: 100%;">Register</button></a>
                     </li>
                     <% } else { %>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <i class="fa fa-user-circle"></i> <%= currentUser.username %>
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i>
+                            <%= currentUser.username %>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/user/<%= currentUser.username %>"> <i class="fa fa-user"></i> My Profile</a>
-                            <a class="dropdown-item" href="/blogs"> <i class="far fa-images"> </i> Posts <%=  %>  </a>
+                            <a class="dropdown-item" href="/user/<%= currentUser.username %>"> <i
+                                    class="fa fa-user"></i> My Profile</a>
+                            <a class="dropdown-item" href="/blogs"> <i class="far fa-images"> </i> Posts
+                                <%=  %>
+                            </a>
                             <div class="divider"></div>
                             <a class="dropdown-item" href="/logout"> <i class="fa fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </li>
-                </ul> 
-                    <% } %>
+                </ul>
+                <% } %>
                 </ul>
             </div>
         </div>
@@ -50,10 +56,14 @@
 
     <div class="container">
         <% if(error && error.length > 0){ %>
-        <div class="alert alert-danger"><%= error %></div>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
         <% } %>
         <% if(success && success.length > 0){ %>
-        <div class="alert alert-success"><%= success %></div>
+        <div class="alert alert-success">
+            <%= success %>
+        </div>
         <% } %>
     </div>
 
