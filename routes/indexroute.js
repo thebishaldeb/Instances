@@ -38,6 +38,7 @@ router.get("/register", function(req, res) {
     res.render("register");
 });
 
+
 router.post("/register", upload_profilepic.single('profilepicture'), function(req, res) {
     var {
         username,
@@ -45,7 +46,7 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
         lastname,
         firstname,
         gender,
-        description,
+        description1,
         birthdate,
         role,
         age,
@@ -62,7 +63,7 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
         lastname,
         firstname,
         gender,
-        description,
+        description1,
         birthdate,
         role,
         age,
@@ -70,7 +71,6 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
         phonenumber
     });
     User.register(newUser, req.body.password, function(err, user) {
-
         if (err) {
             console.log(err);
             if (err.errors.email) {
