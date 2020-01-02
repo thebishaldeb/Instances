@@ -76,16 +76,17 @@
                                 <label for="birthdate" class="col-md-3 col-form-label">Birth-Date:</label>
                                 <div class="col-md-9">
                                     <input value="<%= user.birthdate %>" type="text" onfocus="(this.type='date')"
-                                        id="date" placeholder="Enter birthdate" name="birthdate" class="form-control"
-                                        required />
+                                        id="date" placeholder="Enter birthdate" name="birthdate" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="profilepicture" class="col-md-3 col-form-label">Profile-Picture:</label>
                                 <div class="col-md-9">
-                                    <input type="text" value="<%= user.profilepicture %>"
-                                        placeholder="Enter Profile-Picture" name="profilepicture" class="form-control"
-                                        required />
+                                    <img id="current" src="../<%= user.profilepicture %>" alt="Profile-Picture" style="width: 120px; height: 120px; border-radius: 50%;margin: 9px 40%">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input form-control" id="profilepicture" name="profilepicture" required>
+                                        <label class="custom-file-label" for="profilepicture">Choose Image to Upload</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
