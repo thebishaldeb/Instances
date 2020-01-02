@@ -51,7 +51,6 @@ router.post("/register", upload_profilepic.single('profilepicture'), function(re
         firstname , gender , description , birthdate , role , age , 
         profilepicture : "../" + req.file.path.slice(7) , phonenumber});
         User.register(newUser, req.body.password, function(err, user){
-          
         if (err) {
             console.log(err);
             if (err.errors.email) {
