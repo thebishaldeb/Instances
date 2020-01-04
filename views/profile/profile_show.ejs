@@ -5,8 +5,10 @@
 
 
             <div class="card bg-light p-0">
+
                 <div class="card-header" style="background:  #17a2b8;">
-                    <img src="<%= user1.profilepicture %>" style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
+                    <img src="<%= user1.profilepicture %>"
+                        style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
                     <h5 class="text-center">Username: <%= user1.username %></h5>
                 </div>
                 <div class="card-body">
@@ -14,22 +16,78 @@
                         <li class="list-group-item"><strong>Firstname:</strong> <%= user1.firstname %></li>
                         <li class="list-group-item"><strong>LastName:</strong> <%= user1.lastname %></li>
                         <li class="list-group-item"><strong>Description:</strong> <%= user1.description1 %></li>
-                        
+
                         <li class="list-group-item"><strong>Role:</strong> <%= user1.role %></li>
-                        <li class="list-group-item"><strong>BirthDate:</strong> <%= moment(user1.birthdate).format("Do MMM YYYY") %></li>
+                        <li class="list-group-item"><strong>BirthDate:</strong>
+                            <%= moment(user1.birthdate).format("Do MMM YYYY") %></li>
                         <li class="list-group-item"><strong>Email: </strong> <%= user1.email %></li>
                         <li class="list-group-item"><strong>PhoneNumber: </strong> <%= user1.phonenumber %></li>
                         <li class="list-group-item"><strong>Age: </strong> <%= user1.age %></li>
                         <li class="list-group-item"><strong>Gender: </strong> <%= user1.gender %></li>
-                       
+
                         <% if(user1._id.equals(currentUser._id)){ %>
                         <li class="list-group-item"><a href="/user/edit/<%= user1._id %>"><button
                                     class="btn btn-primary btn-sm mx-auto">Edit Profile</button></a></li>
                         <% } %>
                     </ul>
                 </div>
+
+                <br>
+                <br>
+                <div class="card-header" style="background: lavender">
+                    <img src="<%= user1.profilepicture %>" style="width :120px;height: 120px;border-radius: 50%;margin : 9px 40%" alt="">
+                    <h5 class="text-center"><strong>Blogs</strong></h5>
+                </div>
+        
+                <div class="container">
+        
+                    <div class="row text-center">
+                    
+                        <% myBlogs.forEach(function(myBlog){ %>
+                    
+                            <div class="col-md-4 ">
+                    
+                                <div class="card bg-light" style="padding : 12px 0; margin: 8px; ">
+                                        <img src="<%= myBlog.image[0] %>" alt="<%= myBlog.name %>" style="height: 135px; width : 185px; margin: 2px auto;">
+                                        <hr>
+                                        
+                                        <div class="card-body" style="padding : 4px">
+                
+                                            <h4 class="card-title"><%= myBlog.name %></h4>
+                                            
+                                            <div class="btn-group btn-group-xs">
+                                            
+                                                <a href="../blogs/<%= myBlog._id %>" class="btn btn-sm btn-primary">More Info</a>
+                
+                                                <% if(user1._id.equals(currentUser._id)){ %>
+                                                <a href="../blogs/<%= myBlog._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                                                <% } %>
+        
+                                                <% if(user1._id.equals(currentUser._id)){ %>
+                                                <form class="deleteForm" action="../blogs/<%=myBlog._id %>/myBlogs?_method=DELETE" method="POST">
+                                                    <button class="btn btn-sm btn-danger"><a onClick="javascript: return confirm('Are you sure you want to delete this post?');"  style='color:#fff'>Delete</a></button>
+                                                </form>
+                                                <% } %>
+        
+                                            </div>
+                
+                                        </div>
+                                            
+                                </div>
+                                
+                            </div>
+                        <% }); %>
+                    </div>
+                
+                </div>
+                
+        
+
+
             </div>
         </div>
+
+
     </div>
 </div>
 <% include ../partials/footer %>

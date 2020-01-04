@@ -3,15 +3,6 @@ h1 {
   text-align: center;
 }
 
-/* Add padding to containers */
-.registration_container {
-  padding: 30px;
-  width: 60%;
-  margin: auto;
-  background-color: white;
-  z-index: 2;
-
-}
 
 /* Set a style for the submit button */
 .btn {

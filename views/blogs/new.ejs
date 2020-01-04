@@ -1,31 +1,64 @@
 <% include ../partials/header %>
 <div class="container">
     <div class="row">
-        <div class="col-md-6" style="margin : 20px auto; padding : 10px;">
-           
+        <div class="col-md-10 offset-md-1">
             <div class="card bg-light" style="margin : 20px auto">
                 <h2 class="text-center">New Instance</h2>
                 <div class="card-body">
-                    <form action="/blogs" method="POST">
+                    <form action="/blogs" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input class="form-control" type="text" name="name" placeholder="Enter Title" required>
+                            <label for="name">Title</label>
+                            <input class="form-control" type="text" id="name" name="name"
+                                placeholder="Enter Title for the instance" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="image" placeholder="Image URL" required>
+                            <label for="name">Select Instance Image</label>
+                            <input type="file" class="form-control-file" id="blogpicture" name="blogpicture" required
+                                multiple>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="description">Description</label>
+                                <textarea class="form-control form-control-sm" id="description" name="description"
+                                    placeholder="Description (Supports Markdown)" required
+                                    onkeyup="updateDescriptionMarkdown();"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-center">Markdown Preview <i class="fa fa-arrow-down"></i></b>
+                                    </button>
+                                    <div class="alert" id="content"></div>
+                            </div>
+                        </div>
+                        <div id="location" name ="location">
+                            <p id="city-name"></p>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="description" placeholder="Description"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-block">Submit!</button>
+                            <button class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                     <a href="/blogs">Go Back</a>
-                
+
+                    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+                    <script>
+                        function updateDescriptionMarkdown() {
+                            // Select Description Textarea
+                            var description = document.getElementById('description').value;
+
+                            // Make markdown preview of description
+                            var marked_desc = marked(description);
+
+                            // a
+                            document.getElementById('content').innerHTML = marked_desc;
+                            // value of text area becomes marked text
+                            description = marked_desc;
+                            console.log(marked_desc, description);
+                        }
+                    </script>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <% include ../partials/footer %>

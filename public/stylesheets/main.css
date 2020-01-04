@@ -1,72 +1,69 @@
 /* COMMON TO ALL */
+
 html {
-	position: relative; 
-	min-height: 100%; 
+  position: relative;
+  min-height: 100%;
 }
 
-
-.card{
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    padding: 10px;
+body {
+  background-image: url("profilebg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-top: 75px;
 }
 
+/* Navbar */
 nav.navbar {
-    margin-bottom: 20px;
-}
-.navbar-brand{
-  font-size: 25px;
-}
-.list-group-item strong{
-  color : #17a2b8;
+  /* font-size: .9rem; */
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: rgba(0, 0, 0, 0.6);
 }
 
-/* WELCOME PAGE */
-
-
-/* FULL BLOG READ PAGE */
-.thumbnail img {
-    width: 100%;
-}
-.thumbnail {
-    padding: 0;
-}
-.thumbnail .caption-full {
-    padding: 9px;
-}
-.deleteForm {
-    display: inline;
-}
-.details {
-    color: white;
-}
-/* LOGIN AND SIGNUP PAGE */
-
-
-/* ADD AND EDIT COMMENT PAGE */
-
-
-
-/* HEADER */
-.img-responsive{
-    height : 400px;
-    width : 620px;
-    padding : 5px;
+.navbar-brand {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  letter-spacing: .2rem;
 }
 
-.btn-success{
-    background-color: blueviolet;
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.chip {
-    display: inline-block;
-    padding: 10px;
-    height: 39px;
-    font-size: 14px;
-  
-    border-radius: 20px;
-    background-color: #f1f1f1;
-  }
-  
+.img-responsive {
+  height: 400px;
+  width: 620px;
+  padding: 5px;
+}
+
+.btn-success {
+  background-color: blueviolet;
+}
+
+/* used in show.ejs */
+.comment {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+  border-color: white;
+  border-bottom-color: lightgray;
+  border-radius: 0;
+  border-bottom-width: 1.5px;
+  font-size: 13px;
+}
+
+.form-control:focus {
+  border-color: white;
+  border-bottom-color: blue;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
   input[type=text],
   input[type=password],
   input[type=email],
@@ -78,79 +75,12 @@ nav.navbar {
     border-bottom-width: 1.5px;
     font-size: 13px;
   }
-  
-  input[type=text]:hover,
-  input[type=password]:hover {
-    border-bottom-color: blue;
-  }
-  
-  .form-control:focus {
-    border-color: white;
-    border-bottom-color: blue;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-  }
-  
-  
-  
-  .navbar {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: .9rem;
-    letter-spacing: .1rem;
-    background: rgba(0, 0, 0, 0.6);
-    color : white;
-    border-bottom: rgba(0, 0, 0, 0.6);
-  }
 
-  
-  
-  
-  
-  
-  
-  
-  /* WELCOME PAGE */
-  
-  
-  /* FULL BLOG READ PAGE */
-  .thumbnail img {
-    width: 100%;
-  }
-  
-  .thumbnail {
-    padding: 0;
-  }
-  
-  .thumbnail .caption-full {
-    padding: 9px;
-  }
-  
-  .deleteForm {
-    display: inline;
-  }
-  
-  .details {
-    color: white;
-  }
-  
-  /* LOGIN AND SIGNUP PAGE */
-  
-  
-  /* ADD AND EDIT COMMENT PAGE */
-  
-  
-  
-  /* HEADER */
-  
-  
-  
   /* FOOTER */
   footer {
     padding: 10px 0;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    bottom: 0px;
     overflow: hidden;
   }
   
@@ -158,7 +88,4 @@ nav.navbar {
     padding: 2px;
     border-radius: 9px;
     width: 60px;
-  }
-  body{
-    background-image: url("profilebg.jpg");
   }
