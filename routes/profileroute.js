@@ -8,14 +8,16 @@ const Blog= require("../models/blogmodel");
 const mongoose = require('mongoose');
 const moment = require('moment');
 
-router.get('/:username', middleware.isLoggedIn, (req, res) => {
-    User.findOne({
-        username: req.params.username
-    }).then(user1 => {
-        res.render('profile/profile_show', {
+router.get('/:username',middleware.isLoggedIn, (req, res) => {
+    Promise.all([User.findOne({username:req.params.username}), Blog.find({"author.username":req.params.username})]).then(([user1,myBlogs]) => {
+        res.render('profile/profile_show',{
             user1: user1,
+            myBlogs:myBlogs,
             moment: moment
         })
+    }).catch(err => {
+        console.log(err);
+        res.sendStatus(500);
     })
 });
 
