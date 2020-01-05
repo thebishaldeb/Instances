@@ -38,39 +38,19 @@ router.get("/register", function(req, res) {
     res.render("register");
 });
 
-
-router.post("/register", upload_profilepic.single('profilepicture'), function(req, res) {
-    var {
-        username,
-        email,
-        lastname,
-        firstname,
-        gender,
-        description1,
-        birthdate,
-        role,
-        age,
-        phonenumber
-    } = req.body;
-    if (req.fileFilterError) {
-        req.flash("error", "Insert images only for profile picture");
-        req.fileFilterError = false;
-        return res.redirect("/register");
-    }
-    var newUser = new User({
-        username,
-        email,
-        lastname,
-        firstname,
-        gender,
-        description1,
-        birthdate,
-        role,
-        age,
-        profilepicture: "../" + req.file.path.slice(8),
-        phonenumber
-    });
-    User.register(newUser, req.body.password, function(err, user) {
+router.post("/register", upload_profilepic.single('profilepicture'), function(req, res){
+    var {username , email, lastname , firstname , gender 
+        , description , birthdate , role , age ,
+         phonenumber} = req.body;
+        if(req.fileFilterError) {
+            req.flash("error", "Insert images only for profile picture");
+            req.fileFilterError = false;
+            return res.redirect("/register");
+        }
+        var newUser = new User({username , email, lastname , 
+        firstname , gender , description , birthdate , role , age , 
+        profilepicture : "../" + req.file.path.slice(7) , phonenumber});
+        User.register(newUser, req.body.password, function(err, user){
         if (err) {
             console.log(err);
             if (err.errors.email) {
